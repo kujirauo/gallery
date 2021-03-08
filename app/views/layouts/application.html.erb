@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Artgallery</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+    <header>
+        <div class="header-logo">
+            <%= link_to("/") do %>
+            <span class="icon-text">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                <span>HOME</span>
+            </span>
+            <% end %>
+        </div>
+
+        <ul class="header-menus">
+            <% if user_signed_in? %>
+            <div class="navbar is-dark" role="navigation" aria-label="dropdown navigation">
+                <div class="navbar-menu">
+                    <div class="navbar-end">
+                    <div class="navbar-item">
+                            <div class="buttons">
+                            <%= link_to "NEW", new_picture_path, class: "button is-info" %>
+                            </div>
+                        </div>
+                        <div class="navbar-item has-dropdown is-active">
+                            <a class="navbar-link">
+                                Menu
+                            </a>
+                            <div class="navbar-dropdown is-right">
+                                <a class="navbar-item">
+                                    <%= link_to "Alluser", users_path, class: "navbar-item" %>
+                                </a>
+                                <a class="navbar-item">
+                                    <%= link_to "E", pictures_path, class: "navbar-item" %>
+                                </a>
+                                <a class="navbar-item">
+                                    <%= link_to "mypage", user_path(current_user), class: "navbar-item" %>
+                                </a>
+                                <hr class="navbar-divider">
+                                <a class="navbar-item">
+                                    <%= link_to "Logout", destroy_user_session_path, class: "navbar-item" %>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% else %>
+            <div class="navbar is-dark" role="navigation" aria-label="dropdown navigation">
+                <div class="navbar-menu">
+                    <div class="navbar-end">
+                    <div class="navbar-item">
+                            <div class="buttons">
+                            <%= link_to "NEW", new_picture_path, class: "button is-info" %>
+                            </div>
+                        </div>
+                        <div class="navbar-item has-dropdown is-active">
+                            <a class="navbar-link">
+                                Menu
+                            </a>
+                            <div class="navbar-dropdown is-right">
+                                <a class="navbar-item">
+                                    <%= link_to "E", pictures_path, class: "navbar-item" %>
+                                </a>
+                                <hr class="navbar-divider">
+                                <a class="navbar-item">
+                                    <%= link_to "ログイン", new_user_session_path, class: "navbar-item" %>
+                                </a>
+                                <a class="navbar-item">
+                                    <%= link_to "新規登録", new_user_registration_path, class: "navbar-item" %>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </ul>
+    </header>
+
+<p class="pt-6"></p>
+
+    <% if flash[:notice] %>
+    <div class="notification is-info">
+        <p class="notice"><%= notice %></p>
+    </div>
+    <% end %>
+
+    <% if flash[:alert] %>
+    <div class="notification is-danger">
+        <p class="alert"><%= alert %></p>
+    </div>
+    <% end %>
+
+    <%= yield %>
+</body>
+
+</html>

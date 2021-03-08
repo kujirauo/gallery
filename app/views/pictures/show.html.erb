@@ -1,0 +1,71 @@
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-7">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <%= attachment_image_tag @picture, :image %>
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-content">
+                                <p class="title is-4"><%= @picture.title %></p>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <table class="table is-narrow">
+                                <tr>
+                                    <th>詳細</th>
+                                </tr>
+                                <tr>
+                                    <td><%= simple_format @picture.body %></td>
+                                </tr>
+                            </table>
+                            <% if @picture.user.id == current_user.id %> <%# 編集可能かどうか%>
+                            <%= link_to "edit", edit_picture_path(@picture), class: "panel-block" %>
+                            <% end %>
+                            <% if Like.find_by(user_id: current_user.id, picture_id: @picture.id) %> <%# お気に入り機能%>
+                            <%= link_to("/likes/#{@picture.id}/destroy" , {method: "picture"}) do %>
+                            <span class="icon">
+                                <i class="fas fa-check"></i>
+                            </span>
+                            <% end %>
+                            <% else %>
+                            <%= link_to("/likes/#{@picture.id}/create" , {method: "picture"}) do %>
+                            <span class="icon">
+                                <i class="fas fa-check-circle"></i>
+                            </span>
+                            <% end %>
+                            <% end %>
+                            <%= @likes_count %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-48x48">
+                                <%= attachment_image_tag @user, :profile_image, fallback: "no-image.png", class: "profile_image is-rounded" %>
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4">投稿者：<%= link_to user_path(@picture.user), class: "panel-block" do %>
+                                <%= @picture.user.username %>
+                                <% end %>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="content">
+                        <%= @picture.user.profile %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
