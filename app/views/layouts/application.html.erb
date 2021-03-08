@@ -31,7 +31,7 @@
                     <div class="navbar-end">
                     <div class="navbar-item">
                             <div class="buttons">
-                            <%= link_to "NEW", new_picture_path, class: "button is-info" %>
+                            <%= link_to "新規投稿", new_picture_path, class: "button is-info" %>
                             </div>
                         </div>
                         <div class="navbar-item has-dropdown is-active">
@@ -40,13 +40,10 @@
                             </a>
                             <div class="navbar-dropdown is-right">
                                 <a class="navbar-item">
-                                    <%= link_to "Alluser", users_path, class: "navbar-item" %>
+                                    <%= link_to "絵画一覧", pictures_path, class: "navbar-item" %>
                                 </a>
                                 <a class="navbar-item">
-                                    <%= link_to "E", pictures_path, class: "navbar-item" %>
-                                </a>
-                                <a class="navbar-item">
-                                    <%= link_to "mypage", user_path(current_user), class: "navbar-item" %>
+                                    <%= link_to "", user_path(current_user), class: "navbar-item" %>
                                 </a>
                                 <hr class="navbar-divider">
                                 <a class="navbar-item">

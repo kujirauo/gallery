@@ -7,7 +7,7 @@
         <div class="column is-4">
           <div class="card">
             <div class="card-image">
-              <figure class="image is-4by3">
+              <figure class="image is-4by5">
                 <%= link_to picture_path(picture) do %>
                   <%= attachment_image_tag picture, :image %>
                 <% end %>
@@ -16,18 +16,14 @@
             <div class="card-content">
               <div class="media">
                 <div class="media-left">
-                  <figure class="image is-64x64">
+                  <p class="title is-4"><%= picture.title %></p>
+                  <figure class="image is-32x32">
                     <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
                   </figure>
                 </div>
                 <div class="media-content">
-                  <div class="title"><%=link_to picture.user.username, user_path(picture.user) %></div>
+                  <div class="title is-6"><%=link_to picture.user.username, user_path(picture.user) %></div>
                 </div>
-                
-              </div>
-
-              <div class="content">
-                <time><%= picture.updated_at.strftime("%Y-%m-%d") %></time>update
               </div>
             </div>
           </div>

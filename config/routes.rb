@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root to: "home#index"
   resources :users
   resources :pictures
+  
   post "likes/:picture_id/create" => "likes#create"
   post "likes/:picture_id/destroy" => "likes#destroy"
 end

@@ -64,12 +64,6 @@
             <div class="card-content">
               <div class="media">
                 <div class="media-content">
-                  <%= link_to picture_path(picture), class: "panel-block" do %>
-                    <span class="panel-icon">
-                      <i class="fas fa-book" aria-hidden="true"></i>
-                    </span>
-                    見る
-                  <% end %>
                   <% if @user.id == current_user.id %>
                     <%= link_to edit_picture_path(picture), class: "panel-block" do %>
                       <span class="panel-icon">
@@ -77,17 +71,17 @@
                       </span>
                       編集
                     <% end %>
+
+                    <%#小さくする%>
                     <%= link_to picture_path(picture), method: :delete, data: {confirm: "削除しますか？"}, class: "panel-block" do %>
                       <span class="panel-icon">
                         <i class="fas fa-trash"></i>
                       </span>
                       削除
                     <% end %>
+
                   <% end %>
                 </div>
-              </div>
-              <div class="content">
-                <time><%= picture.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
               </div>
             </div>
           </div>
