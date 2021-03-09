@@ -6607,3 +6607,780 @@ Processing by PicturesController#index as HTML
 Completed 200 OK in 64ms (Views: 50.6ms | ActiveRecord: 1.7ms | Allocations: 32537)
 
 
+Started GET "/users/2" for ::1 at 2021-03-09 12:08:15 +0900
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPicture Load (0.7ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:54
+  Rendered users/show.html.erb within layouts/application (Duration: 27.2ms | Allocations: 11263)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 91ms (Views: 66.3ms | ActiveRecord: 2.8ms | Allocations: 31779)
+
+
+Started GET "/pictures" for ::1 at 2021-03-09 12:08:17 +0900
+Processing by PicturesController#index as HTML
+  [1m[36mPicture Load (0.3ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/pictures_controller.rb:5:in `index'
+  Rendering pictures/index.html.erb within layouts/application
+  [1m[36mPicture Load (0.3ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" ORDER BY "pictures"."created_at" DESC[0m
+  ↳ app/views/pictures/index.html.erb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pictures/index.html.erb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pictures/index.html.erb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pictures/index.html.erb:27
+  Rendered pictures/index.html.erb within layouts/application (Duration: 10.3ms | Allocations: 4462)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:28
+Completed 200 OK in 36ms (Views: 31.2ms | ActiveRecord: 0.9ms | Allocations: 11499)
+
+
+Started GET "/pictures/new" for ::1 at 2021-03-09 12:08:19 +0900
+Processing by PicturesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (Duration: 8.3ms | Allocations: 1442)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 15.6ms | ActiveRecord: 0.2ms | Allocations: 7703)
+
+
+Started GET "/pictures" for ::1 at 2021-03-09 12:08:23 +0900
+Processing by PicturesController#index as HTML
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/pictures_controller.rb:5:in `index'
+  Rendering pictures/index.html.erb within layouts/application
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" ORDER BY "pictures"."created_at" DESC[0m
+  ↳ app/views/pictures/index.html.erb:6
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pictures/index.html.erb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pictures/index.html.erb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pictures/index.html.erb:27
+  Rendered pictures/index.html.erb within layouts/application (Duration: 11.4ms | Allocations: 3902)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:28
+Completed 200 OK in 25ms (Views: 20.3ms | ActiveRecord: 0.8ms | Allocations: 10172)
+
+
+Started GET "/pictures/3" for ::1 at 2021-03-09 12:08:28 +0900
+Processing by PicturesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPicture Load (0.3ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/pictures_controller.rb:9:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pictures_controller.rb:10:in `show'
+  Rendering pictures/show.html.erb within layouts/application
+  [1m[36mLike Load (0.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = ? AND "likes"."picture_id" = ? LIMIT ?[0m  [["user_id", 2], ["picture_id", 3], ["LIMIT", 1]]
+  ↳ app/views/pictures/show.html.erb:30
+  Rendered pictures/show.html.erb within layouts/application (Duration: 21.8ms | Allocations: 5165)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 44ms (Views: 33.4ms | ActiveRecord: 1.9ms | Allocations: 12754)
+
+
+Started POST "/likes/3/destroy" for ::1 at 2021-03-09 12:08:32 +0900
+Processing by LikesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"i5UbQkihO99E3+moxjEybCAbe6gtJ1+sN5Bz6OqQf2fFfRngeFYfMlEk1XayU5bPdD4wZIdC0qz3z1YljK1gFg==", "picture_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:14:in `destroy'
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = ? AND "likes"."picture_id" = ? LIMIT ?[0m  [["user_id", 2], ["picture_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:15:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/likes_controller.rb:16:in `destroy'
+  [1m[36mLike Destroy (0.4ms)[0m  [1m[31mDELETE FROM "likes" WHERE "likes"."id" = ?[0m  [["id", 6]]
+  ↳ app/controllers/likes_controller.rb:16:in `destroy'
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/likes_controller.rb:16:in `destroy'
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 1.1ms | Allocations: 8393)
+
+
+  
+NoMethodError (undefined method `image_id' for #<Like:0x00007fa6fa8be108>
+Did you mean?  image):
+  
+app/controllers/likes_controller.rb:16:in `destroy'
+Started GET "/pictures" for ::1 at 2021-03-09 12:08:35 +0900
+Processing by PicturesController#index as HTML
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/pictures_controller.rb:5:in `index'
+  Rendering pictures/index.html.erb within layouts/application
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" ORDER BY "pictures"."created_at" DESC[0m
+  ↳ app/views/pictures/index.html.erb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pictures/index.html.erb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pictures/index.html.erb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pictures/index.html.erb:27
+  Rendered pictures/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 3917)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:28
+Completed 200 OK in 17ms (Views: 14.7ms | ActiveRecord: 0.5ms | Allocations: 10267)
+
+
+Started GET "/pictures" for ::1 at 2021-03-09 12:08:37 +0900
+Processing by PicturesController#index as HTML
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/pictures_controller.rb:5:in `index'
+  Rendering pictures/index.html.erb within layouts/application
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" ORDER BY "pictures"."created_at" DESC[0m
+  ↳ app/views/pictures/index.html.erb:6
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pictures/index.html.erb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pictures/index.html.erb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pictures/index.html.erb:27
+  Rendered pictures/index.html.erb within layouts/application (Duration: 8.2ms | Allocations: 3892)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:28
+Completed 200 OK in 23ms (Views: 19.2ms | ActiveRecord: 0.7ms | Allocations: 10130)
+
+
+Started GET "/users/2" for ::1 at 2021-03-09 12:08:40 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:54
+  Rendered users/show.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1913)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 11.8ms | ActiveRecord: 0.5ms | Allocations: 8527)
+
+
+Started DELETE "/pictures/3" for ::1 at 2021-03-09 12:24:42 +0900
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+xWoFOT6S9fjGZUZfEGD4k2BmWIMgoVsPBN4eC5ZOFS1/aq21A1vOvbiqccIIydBGaTSrqbnCGz8TF21SGQnJQ==", "id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPicture Load (0.6ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/pictures_controller.rb:40:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pictures_controller.rb:41:in `destroy'
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."picture_id" = ?[0m  [["picture_id", 3]]
+  ↳ app/controllers/pictures_controller.rb:41:in `destroy'
+  [1m[36mLike Destroy (0.4ms)[0m  [1m[31mDELETE FROM "likes" WHERE "likes"."id" = ?[0m  [["id", 6]]
+  ↳ app/controllers/pictures_controller.rb:41:in `destroy'
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/pictures_controller.rb:41:in `destroy'
+Completed 500 Internal Server Error in 64ms (ActiveRecord: 4.3ms | Allocations: 28867)
+
+
+  
+NoMethodError (undefined method `image_id' for #<Like:0x00007fe5e9f43bf8>
+Did you mean?  image):
+  
+app/controllers/pictures_controller.rb:41:in `destroy'
+Started DELETE "/pictures/3" for ::1 at 2021-03-09 12:26:03 +0900
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+xWoFOT6S9fjGZUZfEGD4k2BmWIMgoVsPBN4eC5ZOFS1/aq21A1vOvbiqccIIydBGaTSrqbnCGz8TF21SGQnJQ==", "id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPicture Load (0.8ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/pictures_controller.rb:40:in `destroy'
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 2.8ms | Allocations: 16494)
+
+
+  
+NoMethodError (undefined method `destroy' for nil:NilClass):
+  
+app/controllers/pictures_controller.rb:41:in `destroy'
+Started DELETE "/pictures/3" for ::1 at 2021-03-09 12:28:33 +0900
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+xWoFOT6S9fjGZUZfEGD4k2BmWIMgoVsPBN4eC5ZOFS1/aq21A1vOvbiqccIIydBGaTSrqbnCGz8TF21SGQnJQ==", "id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPicture Load (0.7ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/pictures_controller.rb:40:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pictures_controller.rb:41:in `destroy'
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."picture_id" = ?[0m  [["picture_id", 3]]
+  ↳ app/controllers/pictures_controller.rb:41:in `destroy'
+  [1m[36mLike Destroy (0.4ms)[0m  [1m[31mDELETE FROM "likes" WHERE "likes"."id" = ?[0m  [["id", 6]]
+  ↳ app/controllers/pictures_controller.rb:41:in `destroy'
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/pictures_controller.rb:41:in `destroy'
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 3.8ms | Allocations: 28867)
+
+
+  
+NoMethodError (undefined method `image_id' for #<Like:0x00007f969fbc2e28>
+Did you mean?  image):
+  
+app/controllers/pictures_controller.rb:41:in `destroy'
+Started DELETE "/pictures/3" for ::1 at 2021-03-09 12:39:49 +0900
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+xWoFOT6S9fjGZUZfEGD4k2BmWIMgoVsPBN4eC5ZOFS1/aq21A1vOvbiqccIIydBGaTSrqbnCGz8TF21SGQnJQ==", "id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPicture Load (0.6ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/pictures_controller.rb:40:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pictures_controller.rb:41:in `destroy'
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."picture_id" = ?[0m  [["picture_id", 3]]
+  ↳ app/controllers/pictures_controller.rb:41:in `destroy'
+  [1m[36mLike Destroy (0.4ms)[0m  [1m[31mDELETE FROM "likes" WHERE "likes"."id" = ?[0m  [["id", 6]]
+  ↳ app/controllers/pictures_controller.rb:41:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/pictures_controller.rb:41:in `destroy'
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 3.9ms | Allocations: 28867)
+
+
+  
+NoMethodError (undefined method `image_id' for #<Like:0x00007f9d81496878>
+Did you mean?  image):
+  
+app/controllers/pictures_controller.rb:41:in `destroy'
+Started DELETE "/pictures/3" for ::1 at 2021-03-09 12:41:41 +0900
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+xWoFOT6S9fjGZUZfEGD4k2BmWIMgoVsPBN4eC5ZOFS1/aq21A1vOvbiqccIIydBGaTSrqbnCGz8TF21SGQnJQ==", "id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPicture Load (0.6ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/pictures_controller.rb:40:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pictures_controller.rb:41:in `destroy'
+  [1m[36mLike Load (0.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."picture_id" = ?[0m  [["picture_id", 3]]
+  ↳ app/controllers/pictures_controller.rb:41:in `destroy'
+  [1m[36mLike Destroy (0.4ms)[0m  [1m[31mDELETE FROM "likes" WHERE "likes"."id" = ?[0m  [["id", 6]]
+  ↳ app/controllers/pictures_controller.rb:41:in `destroy'
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/pictures_controller.rb:41:in `destroy'
+Completed 500 Internal Server Error in 56ms (ActiveRecord: 3.9ms | Allocations: 28877)
+
+
+  
+NoMethodError (undefined method `image_id' for #<Like:0x00007f8697597e30>
+Did you mean?  image):
+  
+app/controllers/pictures_controller.rb:41:in `destroy'
+Started DELETE "/pictures/3" for ::1 at 2021-03-09 12:42:28 +0900
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+xWoFOT6S9fjGZUZfEGD4k2BmWIMgoVsPBN4eC5ZOFS1/aq21A1vOvbiqccIIydBGaTSrqbnCGz8TF21SGQnJQ==", "id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPicture Load (0.6ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."image_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/pictures_controller.rb:40:in `destroy'
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 2.0ms | Allocations: 13031)
+
+
+  
+NoMethodError (undefined method `destroy' for nil:NilClass):
+  
+app/controllers/pictures_controller.rb:41:in `destroy'
+Started GET "/users/2" for ::1 at 2021-03-09 12:48:31 +0900
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPicture Load (0.5ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:57
+  Rendered users/show.html.erb within layouts/application (Duration: 29.3ms | Allocations: 11367)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 85ms (Views: 55.6ms | ActiveRecord: 2.6ms | Allocations: 32038)
+
+
+Started GET "/users/2" for ::1 at 2021-03-09 12:50:20 +0900
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPicture Load (0.5ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:64
+  Rendered users/show.html.erb within layouts/application (Duration: 26.2ms | Allocations: 12031)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 75ms (Views: 51.3ms | ActiveRecord: 2.3ms | Allocations: 32705)
+
+
+Started GET "/users/2" for ::1 at 2021-03-09 13:02:02 +0900
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPicture Load (0.7ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:65
+  Rendered users/show.html.erb within layouts/application (Duration: 28.2ms | Allocations: 11899)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 77ms (Views: 53.0ms | ActiveRecord: 2.6ms | Allocations: 32511)
+
+
+Started GET "/users/2" for ::1 at 2021-03-09 13:04:58 +0900
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPicture Load (0.5ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:65
+  Rendered users/show.html.erb within layouts/application (Duration: 25.0ms | Allocations: 11387)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 91ms (Views: 66.2ms | ActiveRecord: 2.3ms | Allocations: 31961)
+
+
+Started GET "/users/2" for ::1 at 2021-03-09 13:05:00 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:65
+  Rendered users/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1912)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 20.6ms | ActiveRecord: 0.4ms | Allocations: 8529)
+
+
+Started GET "/users/2" for ::1 at 2021-03-09 13:05:03 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:65
+  Rendered users/show.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1913)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 9.4ms | ActiveRecord: 0.4ms | Allocations: 8536)
+
+
+Started GET "/users/2" for ::1 at 2021-03-09 13:06:15 +0900
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPicture Load (0.6ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:65
+  Rendered users/show.html.erb within layouts/application (Duration: 21.9ms | Allocations: 11607)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 73ms (Views: 49.1ms | ActiveRecord: 2.3ms | Allocations: 32400)
+
+
+Started GET "/users/2" for ::1 at 2021-03-09 13:06:17 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:65
+  Rendered users/show.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1912)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 19.9ms | ActiveRecord: 0.5ms | Allocations: 8521)
+
+
+Started GET "/users/2" for ::1 at 2021-03-09 13:06:17 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:65
+  Rendered users/show.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1913)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 9.7ms | ActiveRecord: 0.4ms | Allocations: 8534)
+
+
+Started GET "/users/2" for ::1 at 2021-03-09 13:07:14 +0900
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPicture Load (0.6ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:65
+  Rendered users/show.html.erb within layouts/application (Duration: 30.3ms | Allocations: 12166)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 79ms (Views: 53.8ms | ActiveRecord: 2.8ms | Allocations: 32973)
+
+
+Started GET "/users/2" for ::1 at 2021-03-09 13:07:55 +0900
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:65
+  Rendered users/show.html.erb within layouts/application (Duration: 16.5ms | Allocations: 11535)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 61ms (Views: 41.6ms | ActiveRecord: 1.4ms | Allocations: 32599)
+
+
+Started GET "/users/2" for ::1 at 2021-03-09 13:09:31 +0900
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:65
+  Rendered users/show.html.erb within layouts/application (Duration: 16.6ms | Allocations: 11464)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 64ms (Views: 42.7ms | ActiveRecord: 1.6ms | Allocations: 32451)
+
+
+Started GET "/users/2" for ::1 at 2021-03-09 13:10:20 +0900
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPicture Load (0.7ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:65
+  Rendered users/show.html.erb within layouts/application (Duration: 27.6ms | Allocations: 11387)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 92ms (Views: 61.8ms | ActiveRecord: 2.9ms | Allocations: 31898)
+
+
+Started GET "/users/2" for ::1 at 2021-03-09 13:10:21 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:65
+  Rendered users/show.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1912)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 10.1ms | ActiveRecord: 0.6ms | Allocations: 8526)
+
+
+Started GET "/users/2" for ::1 at 2021-03-09 13:10:40 +0900
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPicture Load (0.4ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:65
+  Rendered users/show.html.erb within layouts/application (Duration: 24.9ms | Allocations: 11387)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 78ms (Views: 52.7ms | ActiveRecord: 2.4ms | Allocations: 32041)
+
+
+Started GET "/users/2" for ::1 at 2021-03-09 13:10:43 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPicture Load (0.3ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:65
+  Rendered users/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1912)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 20.5ms | ActiveRecord: 0.7ms | Allocations: 8543)
+
+
+Started GET "/users/2" for ::1 at 2021-03-09 13:11:24 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 11.8ms | Allocations: 4145)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.3ms | Allocations: 7491)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <section class="section">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="columns is-centered">
+                    <div class="column is-4"> <%# プロフィール %>
+                        <figure class="image is-128x128" style="margin-left: auto; margin-right: auto;">
+                            <%= attachment_image_tag @user, :profile_image, fallback: "no-image.png", class: "profile_image is-rounded" %>
+                        </figure>
+                    </div>
+                    <div class="column is-8">
+                        <table class="table is-fullwidth">
+                            <tr>
+                                <td class="is-size-4">
+                                    <strong><%= @user.username %></strong>
+                                </td>
+                                <% if @user.id == current_user.id %>
+                                <td class="is-size-4">
+                                    <%= @user.email %>
+                                </td>
+                                <td>
+                                    <%= link_to edit_user_path(@user), class: "panel-block" do %>
+                                    <span class="panel-icon">
+                                        <i class="fas fa-edit"></i>
+                                    </span>
+                                    編集
+                                    <% end %>
+                                </td>
+                                <% end %>
+                            </tr>
+                        </table>
+                        <table class="table is-fullwidth">
+                            <tr>
+                                <td>
+                                    <%= @user.profile %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <li><%= link_to("お気に入り", "/users/#{@user.id}/likes") %></li>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section"> <%# 自分の投稿一覧 %>
+    <div class="container">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <p class="heading">投稿一覧</p>
+                    <p class="title">5</p>
+                </div>
+            </div>
+        </nav>
+        <div class="columns is-multiline"> <%# 画像欄 %>
+            <% @user.pictures.each do |picture| %>
+            <div class="column is-4">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <%= link_to picture_path(picture) do %>
+                            <%= attachment_image_tag picture, :image, fallback: "no-image.png" %>
+                            <% end %>
+                        </figure>
+                    </div>
+                    <div class="card-content"> <%# 画像説明 %>
+                        <div class="media">
+                            <div class="media-content">
+                                <div class="content">
+                                    <p class="title is-4"><%= picture.title %></p><%# 画像タイトル %>
+                                </div>
+                                <% if @user.id == current_user.id %>
+                                <%= link_to edit_picture_path(picture), class: "panel-block" do %>
+                                <span class="panel-icon">
+                                    <i class="fas fa-edit"></i>
+                                </span>
+                                編集
+                                <% end %>
+                                <%= link_to picture_path(picture), method: :delete, data: {confirm: "削除しますか？"}, class: "panel-block" do %>
+                                <span class="panel-icon-dimensions">
+                                    <i class="fas fa-trash"></i>
+                                </span>
+                                削除
+                                <% end %>
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</section>
+):
+1:    <section class="section">
+2:        <div class="container">
+3:            <div class="columns is-centered">
+4:                <div class="column is-8">
+5:                    <div class="columns is-centered">
+6:                        <div class="column is-4"> <%# プロフィール %>
+7:                            <figure class="image is-128x128" style="margin-left: auto; margin-right: auto;">
+8:                                <%= attachment_image_tag @user, :profile_image, fallback: "no-image.png", class: "profile_image is-rounded" %>
+9:                            </figure>
+10:                        </div>
+11:                        <div class="column is-8">
+12:                            <table class="table is-fullwidth">
+13:                                <tr>
+14:                                    <td class="is-size-4">
+15:                                        <strong><%= @user.username %></strong>
+16:                                    </td>
+17:                                    <% if @user.id == current_user.id %>
+18:                                    <td class="is-size-4">
+19:                                        <%= @user.email %>
+20:                                    </td>
+21:                                    <td>
+22:                                        <%= link_to edit_user_path(@user), class: "panel-block" do %>
+23:                                        <span class="panel-icon">
+24:                                            <i class="fas fa-edit"></i>
+25:                                        </span>
+26:                                        編集
+27:                                        <% end %>
+28:                                    </td>
+29:                                    <% end %>
+30:                                </tr>
+31:                            </table>
+32:                            <table class="table is-fullwidth">
+33:                                <tr>
+34:                                    <td>
+35:                                        <%= @user.profile %>
+36:                                    </td>
+37:                                </tr>
+38:                                <tr>
+39:                                    <td>
+40:                                        <li><%= link_to("お気に入り", "/users/#{@user.id}/likes") %></li>
+41:                                    </td>
+42:                                </tr>
+43:                            </table>
+44:                        </div>
+45:                    </div>
+46:                </div>
+47:            </div>
+48:        </div>
+49:    </section>
+50:    
+51:    <section class="section"> <%# 自分の投稿一覧 %>
+52:        <div class="container">
+53:            <nav class="level">
+54:                <div class="level-item has-text-centered">
+55:                    <div>
+56:                        <p class="heading">投稿一覧</p>
+57:                        <p class="title">5</p>
+58:                    </div>
+59:                </div>
+60:            </nav>
+61:            <div class="columns is-multiline"> <%# 画像欄 %>
+62:                <% @user.pictures.each do |picture| %>
+63:                <div class="column is-4">
+64:                    <div class="card">
+65:                        <div class="card-image">
+66:                            <figure class="image is-4by3">
+67:                                <%= link_to picture_path(picture) do %>
+68:                                <%= attachment_image_tag picture, :image, fallback: "no-image.png" %>
+69:                                <% end %>
+70:                            </figure>
+71:                        </div>
+72:                        <div class="card-content"> <%# 画像説明 %>
+73:                            <div class="media">
+74:                                <div class="media-content">
+75:                                    <div class="content">
+76:                                        <p class="title is-4"><%= picture.title %></p><%# 画像タイトル %>
+77:                                    </div>
+78:                                    <% if @user.id == current_user.id %>
+79:                                    <%= link_to edit_picture_path(picture), class: "panel-block" do %>
+80:                                    <span class="panel-icon">
+81:                                        <i class="fas fa-edit"></i>
+82:                                    </span>
+83:                                    編集
+84:                                    <% end %>
+85:                                    <%= link_to picture_path(picture), method: :delete, data: {confirm: "削除しますか？"}, class: "panel-block" do %>
+86:                                    <span class="panel-icon-dimensions">
+87:                                        <i class="fas fa-trash"></i>
+88:                                    </span>
+89:                                    削除
+90:                                    <% end %>
+91:    
+92:                                    
+93:                                </div>
+94:                            </div>
+95:                        </div>
+96:                    </div>
+97:                </div>
+98:                <% end %>
+99:            </div>
+100:        </div>
+101:    </section>
+  
+app/views/users/show.html.erb:108: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/show.html.erb:108: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/show.html.erb:108: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/show.html.erb:108: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/show.html.erb:108: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/show.html.erb:108: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/users/2" for ::1 at 2021-03-09 13:11:31 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:65
+  Rendered users/show.html.erb within layouts/application (Duration: 6.9ms | Allocations: 2613)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 16.3ms | ActiveRecord: 0.4ms | Allocations: 10803)
+
+
+Started GET "/users/2" for ::1 at 2021-03-09 13:11:38 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:65
+  Rendered users/show.html.erb within layouts/application (Duration: 4.4ms | Allocations: 2561)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 13.6ms | ActiveRecord: 0.4ms | Allocations: 10602)
+
+

@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :pictures
   post "likes/:picture_id/create" => "likes#create"
   post "likes/:picture_id/destroy" => "likes#destroy"
+  delete 'pictures/:id' => 'pictures#destroy'
 end
