@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
   root to: "home#index"
   resources :users
+  get "users/:id/likes" => "users#likes"
   resources :pictures
   post "likes/:picture_id/create" => "likes#create"
   post "likes/:picture_id/destroy" => "likes#destroy"
