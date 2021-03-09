@@ -28,14 +28,17 @@
                             <% end %>
                             <% if Like.find_by(user_id: current_user.id, picture_id: @picture.id) %> <%# お気に入り機能%>
                             <%= link_to("/likes/#{@picture.id}/destroy" , {method: "picture"}) do %>
-                            <span class="icon">
-                                <i class="fas fa-check"></i>
+                            <span class="icon-text has-text-success">
+                                <span class="icon">
+                                    <i class="fas fa-star"></i>
+                                </span>
                             </span>
+
                             <% end %>
                             <% else %>
                             <%= link_to("/likes/#{@picture.id}/create" , {method: "picture"}) do %>
                             <span class="icon">
-                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-star"></i>
                             </span>
                             <% end %>
                             <% end %>
