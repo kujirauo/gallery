@@ -1,28 +1,43 @@
-<% @likes.each do |like| %>
-<% picture = Picture.find_by(id: like.picture_id) %>
+<p class="pt-3"></p>
 
-<figure class="image is-4by5"> <%# 絵の画像 %>
-    <%= link_to picture_path(picture) do %>
-    <%= attachment_image_tag picture, :image %>
-    <% end %>
-</figure>
-
-
-<div class="content">
-    <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
-</div>
-<div class="media">
-    <div class="media-left">
-        <figure class="image is-32x32"> <%# アイコン %>
-            <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
-        </figure>
+<section class="section">
+    <div class="container">
+        <div class="columns is-multiline">
+            <% @likes.each do |like| %>
+            <% picture = Picture.find_by(id: like.picture_id) %>
+            <div class="column is-4">
+                <div class="card"> <%# カードコンテンツ開始 %>
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+                            <%= attachment_image_tag picture, :image %>
+                            <% end %>
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+                                <article class="media">
+                                    <figure class="media-left">
+                                        <p class="image is-32x32"> <%# アイコン %>
+                                            <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+                                        </p>
+                                    </figure>
+                                </article>
+                            </div>
+                            <div class="media-content"> <%# ユーザー名%>
+                                <div class="content">
+                                    <p>
+                                        <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
     </div>
-    <div class="media-content"> <%# ユーザー名%>
-        <p class="title is-6"><%=link_to picture.user.username, user_path(picture.user) %></p>
-    </div>
-</div>
-</div>
-</div>
-
-<% end %>
-</div>
+</section>

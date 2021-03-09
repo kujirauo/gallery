@@ -35,7 +35,11 @@
                                     <%= @user.profile %>
                                 </td>
                             </tr>
-                            
+                            <tr>
+                                <td>
+                                    <li><%= link_to("お気に入り", "/users/#{@user.id}/likes") %></li>
+                                </td>
+                            </tr>
                         </table>
                     </div>
                 </div>
@@ -49,8 +53,10 @@
         <nav class="level">
             <div class="level-item has-text-centered">
                 <div>
-                    <p class="heading">投稿一覧</p>
-                    <p class="title">5</p>
+                    <p class="heading">
+                    <p class="title">投稿一覧</p>
+                    </p>
+                    <p class="title"><%= @likes_count%></p> <%# 画像欄 %>
                 </div>
             </div>
         </nav>

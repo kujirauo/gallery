@@ -3,7 +3,21 @@
         <p>
             <strong class="is-size-1" style="font-family: cursive;">Artgallery</strong>
         </p>
+        <%= form_tag("/search", method: "get") do %>
+        <%= label_tag(:search, "検索") %>
+        <%= text_field_tag(:search) %>
+        <%= submit_tag("Search")%>
+        <% end %>
+        <ul><% @pictures.each do |picture| %>
+            <li>
+                <%= link_to picture.title, picture %>
+                <%= picture.created_at %>
+                <%# <%= picture.status %>
+            </li>
+            <% end %>
+
+        </ul>
         <%= attachment_image_tag @picture, :image %>
-        　<%# 検索の枠を入れる %>
+        <%# 検索の枠を入れる %>
     </div>
 </div>

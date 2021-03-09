@@ -42,6 +42,10 @@ class PicturesController < ApplicationController
     redirect_to pictures_path
   end
 
+  def search
+    @pictures = Picture.where(activated: true).paginate(page: params[:page]).search(params[:search])
+  end
+
   private
   def picture_params
     params.require(:picture).permit(:title, :body, :image, :comment)
