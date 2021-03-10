@@ -5,13 +5,13 @@ class User < ApplicationRecord
         :recoverable, :rememberable, :validatable
   has_many :pictures, dependent: :destroy
 
-  # has_many :likes, dependent: :destroy
-  # has_many :liked_pictures, through: :likes, source: :picture 
+  has_many :likes, dependent: :destroy
+  has_many :liked_pictures, through: :likes, source: :picture
 
   attachment :profile_image
   validates :username, presence: true
 
-  def already_favorited?(picture)
-    self.favorites.exists?(picture_id: picture.id)
+  def already_liked?(picture)
+    self.likes.exists?(picture_id: picture.id)
   end
 end
