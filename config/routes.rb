@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   post "likes/:picture_id/destroy" => "likes#destroy"
   #post "pictures/:id/destroy" => "pictures#destroy"
   post "/pictures/:picture_id/destroy" => "pictures#destroy"
-  #get 'search' => 'students#search'
+  #get 'search' => 'pictures#search'
 end
 

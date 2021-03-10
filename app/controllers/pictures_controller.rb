@@ -46,6 +46,7 @@ class PicturesController < ApplicationController
   end
 
   def search
+    @pictures = Picture.search(params[:search])
     #@q = Picture.search(search_params)
     #@pictures = @q.result(distinct: true)
   end
