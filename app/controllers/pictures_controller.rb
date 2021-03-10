@@ -5,7 +5,7 @@ class PicturesController < ApplicationController
     #@picture = Picture.find_by(id: params[:id])
     #@q = Picture.ransack(params[:q])
     #@pictures = @q.result(distinct: true)
-    @pictures = Picture.where(activated: true).search(params[:search])
+    @pictures = Picture.where.search(params[:search])
   end
 
   def show
