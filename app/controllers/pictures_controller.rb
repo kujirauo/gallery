@@ -3,7 +3,8 @@ class PicturesController < ApplicationController
   def index
     @pictures = Picture.all.order(created_at: :desc)
     #@picture = Picture.find_by(id: params[:id])
-    @pictures = Picture.where(activated: true).paginate(page: params[:page]).search(params[:search])
+    #@q = Picture.ransack(params[:q])
+    #@pictures = @q.result(distinct: true)
   end
 
   def show
@@ -44,11 +45,12 @@ class PicturesController < ApplicationController
   end
 
   def search
-    @pictures = Picture.search(params[:search])
+    #@q = Picture.search(search_params)
+    #@pictures = @q.result(distinct: true)
   end
 
   private
-  def picture_params
-    params.require(:picture).permit(:title, :body, :image, :comment)
+  def search_params
+    params.require(:q).permit!
   end
 end
