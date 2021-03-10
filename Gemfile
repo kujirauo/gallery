@@ -58,3 +58,6 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem "bulma-rails"
 gem 'ransack'
+gem 'pry-rails'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'

@@ -2,7 +2,8 @@ class PicturesController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   def index
     @pictures = Picture.all.order(created_at: :desc)
-    @picture = Picture.find_by(id: params[:id])
+    #@picture = Picture.find_by(id: params[:id])
+    @pictures = Picture.where(activated: true).paginate(page: params[:page]).search(params[:search])
   end
 
   def show

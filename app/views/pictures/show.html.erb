@@ -23,12 +23,9 @@
                                     <td><%= simple_format @picture.body %></td>
                                 </tr>
                             </table>
-                            <% if @picture.user.id == current_user.id %> <%# 編集可能かどうか%>
-                            <%= link_to "edit", edit_picture_path(@picture), class: "panel-block" %>
-                            <% end %>
                             <% if Like.find_by(user_id: current_user.id, picture_id: @picture.id) %> <%# お気に入り機能%>
                             <%= link_to("/likes/#{@picture.id}/destroy" , {method: "picture"}) do %>
-                            <span class="icon-text has-text-success">
+                            <span class="icon-text has-text-danger">
                                 <span class="icon">
                                     <i class="fas fa-star"></i>
                                 </span>
@@ -36,12 +33,13 @@
                             <% end %>
                             <% else %>
                             <%= link_to("/likes/#{@picture.id}/create" , {method: "picture"}) do %>
-                            <span class="icon">
-                                <i class="fas fa-star"></i>
+                            <span class="icon-text has-text-black">
+                                <span class="icon">
+                                    <i class="fas fa-star"></i>
+                                </span>
                             </span>
                             <% end %>
                             <% end %>
-                            <%= @likes_count %>
                         </div>
                     </div>
                 </div>
