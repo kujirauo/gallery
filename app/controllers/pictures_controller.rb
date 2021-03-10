@@ -43,7 +43,7 @@ class PicturesController < ApplicationController
   end
 
   def search
-    @pictures = Picture.where(activated: true).paginate(page: params[:page]).search(params[:search])
+    @pictures = Picture.search(params[:search])
   end
 
   private

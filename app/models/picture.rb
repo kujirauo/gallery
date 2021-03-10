@@ -12,7 +12,10 @@ class Picture < ApplicationRecord
     end
 
     def self.search(search)
-        return Post.all unless search
-        Post.where(['content LIKE ?', "%#{search}%"])
+        if search
+            Picture.where(['content LIKE ?', "%#{search}%"])
+        else
+            Picture.all
+        end
     end
 end

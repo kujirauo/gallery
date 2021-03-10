@@ -8,13 +8,8 @@
         <%= text_field_tag(:search) %>
         <%= submit_tag("Search")%>
         <% end %>
-        <ul><% @pictures.each do |picture| %>
-            <li>
-                <%= link_to picture.title, picture %>
-                <%= picture.created_at %>
-                <%# <%= picture.status %>
-            </li>
-            <% end %>
+        
+        
 
         </ul>
         <%= attachment_image_tag @picture, :image %>
