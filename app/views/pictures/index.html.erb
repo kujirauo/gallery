@@ -31,11 +31,13 @@
                                     </p>
                                 </div>
                             </div>
-                            <%= @tags.each do |tag| %>
-                                    <%= link_to "#{tag.name}(#{tag.taggings_count})", pictures_path(tag.name) %>
-                                    <% end %>
 
-                            
+                            <%= @tags.each do |tag| %>
+                            <td><%= tag.name %></td>
+                            <td><%= tag.taggings_count %></td>
+                            <% end %>
+
+
                         </div>
                     </div>
                 </div>

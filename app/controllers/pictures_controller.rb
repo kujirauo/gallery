@@ -9,7 +9,7 @@ class PicturesController < ApplicationController
     if params[:tag_name]
       @pictures = Picture.tagged_with("#{params[:tag_name]}")
     end
-    tags = Picture.tag_counts_on(:tags)
+    #tags = Picture.tag_counts_on(:tags)
     @tags = Picture.tag_counts_on(:tags)
     #全タグ(pictureモデルからtagsカラムを降順で取得)
     #if @tag = params[:tag]  # タグ検索用
@@ -19,12 +19,14 @@ class PicturesController < ApplicationController
     #  if params[:tag_name]
     #    @pictures = Picture.tagged_with("#{params[:tag_name]}")
     #  end
+    #u = Picture.new
+    #u.tag_list.add("Tag")
   end
 
   def show
     @picture = Picture.find_by(id: params[:id])
     @user = @picture.user
-    @tags = @picture.tag_counts_on(:tags)
+    @tags = ActsAsTaggableOn::Tag.find(params[:id])
   end
 
   def new
