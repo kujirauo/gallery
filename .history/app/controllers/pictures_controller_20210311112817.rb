@@ -4,7 +4,7 @@ class PicturesController < ApplicationController
     @pictures = Picture.all.order(created_at: :desc)
     #@picture = Picture.find_by(id: params[:id])
     #@q = current_user.pictures.ransack(params[:q])
-    #@pictures = @q.result(distinct: true).page(params[:page]) #picturesの一覧が消える
+    #@pictures = @q.result(distinct: true).page(params[:page]) #pi
     #@pictures = @q.result(distinct: true)
   end
 

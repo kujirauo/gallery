@@ -3,8 +3,15 @@
         <p>
             <strong class="is-size-1" style="font-family: cursive;">Artgallery</strong>
         </p>
+        
+
         <%= attachment_image_tag @picture, :image %>
     </div>
 </div>
 
+<%= search_form_for @q do |f| %>
+  <%= f.label :name, "Keyword" %>
+  <%= f.search_field :name_cont %>
 
+  <%= f.submit "検索" %>
+<% end %>
