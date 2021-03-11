@@ -31,10 +31,10 @@
 
                 <div class="field">
                     <%=f.label :tag_list %>
-                    <%=f.text_field :tag_list, class:'form-control', value: @picture.tag_list.join(',')%>
-                    <% @tags.each do |tag| %>
-                    <%= f.check_box :tag_list, { multiple: true }, "#{tag.name}", nil %>
-                    <%= f.label " #{tag.name}(#{tag.taggings_count})"%>
+                    <%#f.text_field :tag_list, class:'form-control', value: @picture.tag_list.join(',')%>
+                    <%= @tags.each do |tag| %>
+                    <%=f.check_box :tag_list, { multiple: true }, "#{tag.name}", nil %>
+                    <%=f.label " #{tag.name}(#{tag.taggings_count})" %>
                     <% end %>
                 </div>
 

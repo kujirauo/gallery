@@ -20606,3 +20606,2412 @@ ActionView::Template::Error (undefined method `each' for nil:NilClass):
   
 app/views/pictures/new.html.erb:35
 app/views/pictures/new.html.erb:16
+Started GET "/pictures/new" for ::1 at 2021-03-11 15:15:55 +0900
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (Duration: 53.7ms | Allocations: 16847)
+Completed 500 Internal Server Error in 181ms (ActiveRecord: 4.0ms | Allocations: 40409)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    32:                 <div class="field">
+    33:                     <%=f.label :tag_list %>
+    34:                     <%=f.text_field :tag_list, class:'form-control', value: @picture.tag_list.join(',')%>
+    35:                     <% @tags.each do |tag| %>
+    36:                     <%= f.check_box :tag_list, { multiple: true }, tag.name, nil %>
+    37:                     <%= f.label " #{tag.name}(#{tag.taggings_count})"%>
+    38:                     <% end %>
+  
+app/views/pictures/new.html.erb:35
+app/views/pictures/new.html.erb:16
+Started GET "/pictures/new" for ::1 at 2021-03-11 15:17:17 +0900
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (Duration: 33.3ms | Allocations: 15570)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 145ms (Views: 72.9ms | ActiveRecord: 2.3ms | Allocations: 47400)
+
+
+Started GET "/pictures/tag" for ::1 at 2021-03-11 15:17:27 +0900
+Processing by PicturesController#show as HTML
+  Parameters: {"id"=>"tag"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/pictures_controller.rb:17:in `show'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms | Allocations: 3272)
+
+
+  
+NoMethodError (undefined method `user' for nil:NilClass
+Did you mean?  super):
+  
+app/controllers/pictures_controller.rb:18:in `show'
+Started GET "/pictures/tag_list" for ::1 at 2021-03-11 15:17:44 +0900
+Processing by PicturesController#show as HTML
+  Parameters: {"id"=>"tag_list"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/pictures_controller.rb:17:in `show'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms | Allocations: 3127)
+
+
+  
+NoMethodError (undefined method `user' for nil:NilClass
+Did you mean?  super):
+  
+app/controllers/pictures_controller.rb:18:in `show'
+Started GET "/pictures/_tag_list" for ::1 at 2021-03-11 15:17:49 +0900
+Processing by PicturesController#show as HTML
+  Parameters: {"id"=>"_tag_list"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/pictures_controller.rb:17:in `show'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms | Allocations: 3127)
+
+
+  
+NoMethodError (undefined method `user' for nil:NilClass
+Did you mean?  super):
+  
+app/controllers/pictures_controller.rb:18:in `show'
+Started GET "/pictures/" for ::1 at 2021-03-11 15:18:00 +0900
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  [1m[36mPicture Load (0.5ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" ORDER BY "pictures"."created_at" DESC[0m
+  ↳ app/views/pictures/index.html.erb:5
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mActsAsTaggableOn::Tagging Load (1.0ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 6], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mActsAsTaggableOn::Tag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 6], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 5], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mActsAsTaggableOn::Tag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 5], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 4], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mActsAsTaggableOn::Tag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 4], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 3], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mActsAsTaggableOn::Tag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 3], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 2], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mActsAsTaggableOn::Tag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 2], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 1], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mActsAsTaggableOn::Tag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 1], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  Rendered pictures/index.html.erb within layouts/application (Duration: 50.4ms | Allocations: 32017)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:28
+Completed 200 OK in 72ms (Views: 56.7ms | ActiveRecord: 4.2ms | Allocations: 40322)
+
+
+Started GET "/pictures/" for ::1 at 2021-03-11 15:24:10 +0900
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  Rendered pictures/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 1789)
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 3.1ms | Allocations: 16270)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p class="pt-3"></p>
+<section class="section">
+    <div class="container">
+        <div class="columns is-multiline">
+            <% @pictures.each do |picture| %>
+            <div class="column is-4">
+                <div class="card"> <%# カードコンテンツ開始 %>
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+                            <%= attachment_image_tag picture, :image %>
+                            <% end %>
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+                                <article class="media">
+                                    <figure class="media-left">
+                                        <p class="image is-32x32"> <%# アイコン %>
+                                            <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+                                        </p>
+                                    </figure>
+                                </article>
+                            </div>
+                            <div class="media-content"> <%# ユーザー名%>
+                                <div class="content">
+                                    <p>
+                                        <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <%= picture.tag_list %>
+                            <%= if @tags.present? %>
+                                <%=@tags.each do |tag| %>
+                                <%=link_to tag.taggings_count, tags_path(tag.name) %>
+                            <%=else %>
+                                <%= p %>
+                            <% end %>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</section>
+):
+1:    <p class="pt-3"></p>
+2:    <section class="section">
+3:        <div class="container">
+4:            <div class="columns is-multiline">
+5:                <% @pictures.each do |picture| %>
+6:                <div class="column is-4">
+7:                    <div class="card"> <%# カードコンテンツ開始 %>
+8:                        <div class="card-image">
+9:                            <figure class="image is-4by3">
+10:                                <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+11:                                <%= attachment_image_tag picture, :image %>
+12:                                <% end %>
+13:                            </figure>
+14:                        </div>
+15:                        <div class="card-content">
+16:                            <div class="media">
+17:                                <div class="media-left">
+18:                                    <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+19:                                    <article class="media">
+20:                                        <figure class="media-left">
+21:                                            <p class="image is-32x32"> <%# アイコン %>
+22:                                                <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+23:                                            </p>
+24:                                        </figure>
+25:                                    </article>
+26:                                </div>
+27:                                <div class="media-content"> <%# ユーザー名%>
+28:                                    <div class="content">
+29:                                        <p>
+30:                                            <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+31:                                        </p>
+32:                                    </div>
+33:                                </div>
+34:                                <%= picture.tag_list %>
+35:                                <%= if @tags.present? %>
+36:                                    <%=@tags.each do |tag| %>
+37:                                    <%=link_to tag.taggings_count, tags_path(tag.name) %>
+38:                                <%=else %>
+39:                                    <%= p %>
+40:                                <% end %>
+41:                                <% end %>
+42:                            </div>
+43:                        </div>
+44:                    </div>
+45:                </div>
+46:                <% end %>
+47:            </div>
+48:        </div>
+49:    </section>
+  
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:43: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:45: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:43: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:45: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:43: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:45: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:43: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:45: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:43: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:45: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:43: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:45: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:56: syntax error, unexpected `end', expecting ')'
+Started GET "/pictures/" for ::1 at 2021-03-11 15:24:18 +0900
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  Rendered pictures/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1376)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 3105)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p class="pt-3"></p>
+<section class="section">
+    <div class="container">
+        <div class="columns is-multiline">
+            <% @pictures.each do |picture| %>
+            <div class="column is-4">
+                <div class="card"> <%# カードコンテンツ開始 %>
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+                            <%= attachment_image_tag picture, :image %>
+                            <% end %>
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+                                <article class="media">
+                                    <figure class="media-left">
+                                        <p class="image is-32x32"> <%# アイコン %>
+                                            <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+                                        </p>
+                                    </figure>
+                                </article>
+                            </div>
+                            <div class="media-content"> <%# ユーザー名%>
+                                <div class="content">
+                                    <p>
+                                        <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <%= picture.tag_list %>
+                            <%= if @tags.present? %>
+                                <%=@tags.each do |tag| %>
+                                <%=link_to tag.taggings_count, tags_path(tag.name) %>
+                            <%=else %>
+                                <%= p %>
+                            
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</section>
+):
+1:    <p class="pt-3"></p>
+2:    <section class="section">
+3:        <div class="container">
+4:            <div class="columns is-multiline">
+5:                <% @pictures.each do |picture| %>
+6:                <div class="column is-4">
+7:                    <div class="card"> <%# カードコンテンツ開始 %>
+8:                        <div class="card-image">
+9:                            <figure class="image is-4by3">
+10:                                <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+11:                                <%= attachment_image_tag picture, :image %>
+12:                                <% end %>
+13:                            </figure>
+14:                        </div>
+15:                        <div class="card-content">
+16:                            <div class="media">
+17:                                <div class="media-left">
+18:                                    <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+19:                                    <article class="media">
+20:                                        <figure class="media-left">
+21:                                            <p class="image is-32x32"> <%# アイコン %>
+22:                                                <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+23:                                            </p>
+24:                                        </figure>
+25:                                    </article>
+26:                                </div>
+27:                                <div class="media-content"> <%# ユーザー名%>
+28:                                    <div class="content">
+29:                                        <p>
+30:                                            <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+31:                                        </p>
+32:                                    </div>
+33:                                </div>
+34:                                <%= picture.tag_list %>
+35:                                <%= if @tags.present? %>
+36:                                    <%=@tags.each do |tag| %>
+37:                                    <%=link_to tag.taggings_count, tags_path(tag.name) %>
+38:                                <%=else %>
+39:                                    <%= p %>
+40:                                
+41:                                <% end %>
+42:                            </div>
+43:                        </div>
+44:                    </div>
+45:                </div>
+46:                <% end %>
+47:            </div>
+48:        </div>
+49:    </section>
+  
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:43: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:43: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:43: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:43: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:43: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:43: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:56: syntax error, unexpected `end', expecting ')'
+Started GET "/pictures/" for ::1 at 2021-03-11 15:24:20 +0900
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  Rendered pictures/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1363)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 2256)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p class="pt-3"></p>
+<section class="section">
+    <div class="container">
+        <div class="columns is-multiline">
+            <% @pictures.each do |picture| %>
+            <div class="column is-4">
+                <div class="card"> <%# カードコンテンツ開始 %>
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+                            <%= attachment_image_tag picture, :image %>
+                            <% end %>
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+                                <article class="media">
+                                    <figure class="media-left">
+                                        <p class="image is-32x32"> <%# アイコン %>
+                                            <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+                                        </p>
+                                    </figure>
+                                </article>
+                            </div>
+                            <div class="media-content"> <%# ユーザー名%>
+                                <div class="content">
+                                    <p>
+                                        <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <%= picture.tag_list %>
+                            <%= if @tags.present? %>
+                                <%=@tags.each do |tag| %>
+                                <%=link_to tag.taggings_count, tags_path(tag.name) %>
+                            <%=else %>
+                                <%= p %>
+                            
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</section>
+):
+1:    <p class="pt-3"></p>
+2:    <section class="section">
+3:        <div class="container">
+4:            <div class="columns is-multiline">
+5:                <% @pictures.each do |picture| %>
+6:                <div class="column is-4">
+7:                    <div class="card"> <%# カードコンテンツ開始 %>
+8:                        <div class="card-image">
+9:                            <figure class="image is-4by3">
+10:                                <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+11:                                <%= attachment_image_tag picture, :image %>
+12:                                <% end %>
+13:                            </figure>
+14:                        </div>
+15:                        <div class="card-content">
+16:                            <div class="media">
+17:                                <div class="media-left">
+18:                                    <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+19:                                    <article class="media">
+20:                                        <figure class="media-left">
+21:                                            <p class="image is-32x32"> <%# アイコン %>
+22:                                                <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+23:                                            </p>
+24:                                        </figure>
+25:                                    </article>
+26:                                </div>
+27:                                <div class="media-content"> <%# ユーザー名%>
+28:                                    <div class="content">
+29:                                        <p>
+30:                                            <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+31:                                        </p>
+32:                                    </div>
+33:                                </div>
+34:                                <%= picture.tag_list %>
+35:                                <%= if @tags.present? %>
+36:                                    <%=@tags.each do |tag| %>
+37:                                    <%=link_to tag.taggings_count, tags_path(tag.name) %>
+38:                                <%=else %>
+39:                                    <%= p %>
+40:                                
+41:                                <% end %>
+42:                            </div>
+43:                        </div>
+44:                    </div>
+45:                </div>
+46:                <% end %>
+47:            </div>
+48:        </div>
+49:    </section>
+  
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:43: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:43: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:43: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:43: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:43: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:43: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:56: syntax error, unexpected `end', expecting ')'
+Started GET "/pictures/" for ::1 at 2021-03-11 15:24:26 +0900
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  Rendered pictures/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1379)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 3108)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p class="pt-3"></p>
+<section class="section">
+    <div class="container">
+        <div class="columns is-multiline">
+            <% @pictures.each do |picture| %>
+            <div class="column is-4">
+                <div class="card"> <%# カードコンテンツ開始 %>
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+                            <%= attachment_image_tag picture, :image %>
+                            <% end %>
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+                                <article class="media">
+                                    <figure class="media-left">
+                                        <p class="image is-32x32"> <%# アイコン %>
+                                            <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+                                        </p>
+                                    </figure>
+                                </article>
+                            </div>
+                            <div class="media-content"> <%# ユーザー名%>
+                                <div class="content">
+                                    <p>
+                                        <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <%= picture.tag_list %>
+                            <%= if @tags.present? %>
+                                <%=@tags.each do |tag| %>
+                                <%=link_to tag.taggings_count, tags_path(tag.name) %>
+                            <%=else %>
+                                <%= p %>
+                            <% end %>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</section>
+):
+1:    <p class="pt-3"></p>
+2:    <section class="section">
+3:        <div class="container">
+4:            <div class="columns is-multiline">
+5:                <% @pictures.each do |picture| %>
+6:                <div class="column is-4">
+7:                    <div class="card"> <%# カードコンテンツ開始 %>
+8:                        <div class="card-image">
+9:                            <figure class="image is-4by3">
+10:                                <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+11:                                <%= attachment_image_tag picture, :image %>
+12:                                <% end %>
+13:                            </figure>
+14:                        </div>
+15:                        <div class="card-content">
+16:                            <div class="media">
+17:                                <div class="media-left">
+18:                                    <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+19:                                    <article class="media">
+20:                                        <figure class="media-left">
+21:                                            <p class="image is-32x32"> <%# アイコン %>
+22:                                                <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+23:                                            </p>
+24:                                        </figure>
+25:                                    </article>
+26:                                </div>
+27:                                <div class="media-content"> <%# ユーザー名%>
+28:                                    <div class="content">
+29:                                        <p>
+30:                                            <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+31:                                        </p>
+32:                                    </div>
+33:                                </div>
+34:                                <%= picture.tag_list %>
+35:                                <%= if @tags.present? %>
+36:                                    <%=@tags.each do |tag| %>
+37:                                    <%=link_to tag.taggings_count, tags_path(tag.name) %>
+38:                                <%=else %>
+39:                                    <%= p %>
+40:                                <% end %>
+41:                                <% end %>
+42:                            </div>
+43:                        </div>
+44:                    </div>
+45:                </div>
+46:                <% end %>
+47:            </div>
+48:        </div>
+49:    </section>
+  
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:43: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:45: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:43: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:45: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:43: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:45: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:43: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:45: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:43: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:45: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:43: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:45: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:56: syntax error, unexpected `end', expecting ')'
+Started GET "/pictures/new" for ::1 at 2021-03-11 15:37:15 +0900
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (Duration: 15.8ms | Allocations: 1909)
+Completed 500 Internal Server Error in 125ms (ActiveRecord: 2.0ms | Allocations: 25130)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% if @picture.errors.any? %>
+<div class="notification is-danger">
+    <h2><%= pluralize(@picture.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>
+    <ul>
+        <% @picture.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-6">
+                <%= form_for @picture do |f| %>
+                <div class="field">
+                    <%= f.label :title, "title", class: "label" %>
+                    <%= f.text_field :title, class: "input" %>
+                </div>
+
+                <div class="field">
+                    <%= f.label :body, "詳細", class: "label" %>
+                    <%= f.text_area :body, class: "textarea" %>
+                </div>
+
+                <div class="field">
+                    <%= f.label :image, "画像", class: "label" %>
+                    <%= f.attachment_field :image, class: "input" %>
+                </div>
+
+                <div class="field">
+                    <%=f.label :tag_list %>
+                    <%=f.text_field :tag_list, class:'form-control', value: @picture.tag_list.join(',')%>
+                    <%= @tags.each do |tag| %>
+                    <%=f.check_box :tag_list, { multiple: true }, "#{tag.name}", nil %>
+                    <%=f.label " #{tag.name}(#{tag.taggings_count})" %>
+                </div>
+
+                <%= f.submit '投稿', class: "button is-info" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</section>
+):
+1:    <% if @picture.errors.any? %>
+2:    <div class="notification is-danger">
+3:        <h2><%= pluralize(@picture.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>
+4:        <ul>
+5:            <% @picture.errors.full_messages.each do |message| %>
+6:            <li><%= message %></li>
+7:            <% end %>
+8:        </ul>
+9:    </div>
+10:    <% end %>
+11:    
+12:    <section class="section">
+13:        <div class="container">
+14:            <div class="columns is-centered">
+15:                <div class="column is-6">
+16:                    <%= form_for @picture do |f| %>
+17:                    <div class="field">
+18:                        <%= f.label :title, "title", class: "label" %>
+19:                        <%= f.text_field :title, class: "input" %>
+20:                    </div>
+21:    
+22:                    <div class="field">
+23:                        <%= f.label :body, "詳細", class: "label" %>
+24:                        <%= f.text_area :body, class: "textarea" %>
+25:                    </div>
+26:    
+27:                    <div class="field">
+28:                        <%= f.label :image, "画像", class: "label" %>
+29:                        <%= f.attachment_field :image, class: "input" %>
+30:                    </div>
+31:    
+32:                    <div class="field">
+33:                        <%=f.label :tag_list %>
+34:                        <%=f.text_field :tag_list, class:'form-control', value: @picture.tag_list.join(',')%>
+35:                        <%= @tags.each do |tag| %>
+36:                        <%=f.check_box :tag_list, { multiple: true }, "#{tag.name}", nil %>
+37:                        <%=f.label " #{tag.name}(#{tag.taggings_count})" %>
+38:                    </div>
+39:    
+40:                    <%= f.submit '投稿', class: "button is-info" %>
+41:                    <% end %>
+42:                </div>
+43:            </div>
+44:        </div>
+45:    </section>
+  
+app/views/pictures/new.html.erb:47: syntax error, unexpected end-of-input, expecting `end'
+app/views/pictures/new.html.erb:47: syntax error, unexpected end-of-input, expecting `end'
+app/views/pictures/new.html.erb:47: syntax error, unexpected end-of-input, expecting `end'
+app/views/pictures/new.html.erb:47: syntax error, unexpected end-of-input, expecting `end'
+app/views/pictures/new.html.erb:47: syntax error, unexpected end-of-input, expecting `end'
+app/views/pictures/new.html.erb:47: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/pictures/new" for ::1 at 2021-03-11 15:37:28 +0900
+Processing by PicturesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (Duration: 42.2ms | Allocations: 16441)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 1.1ms | Allocations: 19200)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    32:                 <div class="field">
+    33:                     <%=f.label :tag_list %>
+    34:                     <%=f.text_field :tag_list, class:'form-control', value: @picture.tag_list.join(',')%>
+    35:                     <%= @tags.each do |tag| %>
+    36:                     <%=f.check_box :tag_list, { multiple: true }, "#{tag.name}", nil %>
+    37:                     <%=f.label " #{tag.name}(#{tag.taggings_count})" %>
+    38:                     <% end %>
+  
+app/views/pictures/new.html.erb:35
+app/views/pictures/new.html.erb:16
+Started GET "/pictures/new" for ::1 at 2021-03-11 15:40:08 +0900
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (Duration: 62.0ms | Allocations: 16848)
+Completed 500 Internal Server Error in 162ms (ActiveRecord: 2.9ms | Allocations: 39065)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    32:                 <div class="field">
+    33:                     <%=f.label :tag_list %>
+    34:                     <%=f.text_field :tag_list, class:'form-control', value: @picture.tag_list.join(',')%>
+    35:                     <%= @tags.each do |tag| %>
+    36:                     <%=f.check_box :tag_list, { multiple: true }, "#{tag.name}", nil %>
+    37:                     <%=f.label " #{tag.name}(#{tag.taggings_count})" %>
+    38:                     <% end %>
+  
+app/views/pictures/new.html.erb:35
+app/views/pictures/new.html.erb:16
+Started GET "/pictures/" for ::1 at 2021-03-11 15:40:32 +0900
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  Rendered pictures/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1382)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 3236)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p class="pt-3"></p>
+<section class="section">
+    <div class="container">
+        <div class="columns is-multiline">
+            <% @pictures.each do |picture| %>
+            <div class="column is-4">
+                <div class="card"> <%# カードコンテンツ開始 %>
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+                            <%= attachment_image_tag picture, :image %>
+                            <% end %>
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+                                <article class="media">
+                                    <figure class="media-left">
+                                        <p class="image is-32x32"> <%# アイコン %>
+                                            <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+                                        </p>
+                                    </figure>
+                                </article>
+                            </div>
+                            <div class="media-content"> <%# ユーザー名%>
+                                <div class="content">
+                                    <p>
+                                        <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <%= picture.tag_list %>
+                            <%= if @tags.present? %>
+                            
+                                <%=@tags.each do |tag| %>
+                                <%=link_to tag.taggings_count, tags_path(tag.name) %>
+                            <%=else %>
+                                <%= p %>
+                            <% end %>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</section>
+):
+1:    <p class="pt-3"></p>
+2:    <section class="section">
+3:        <div class="container">
+4:            <div class="columns is-multiline">
+5:                <% @pictures.each do |picture| %>
+6:                <div class="column is-4">
+7:                    <div class="card"> <%# カードコンテンツ開始 %>
+8:                        <div class="card-image">
+9:                            <figure class="image is-4by3">
+10:                                <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+11:                                <%= attachment_image_tag picture, :image %>
+12:                                <% end %>
+13:                            </figure>
+14:                        </div>
+15:                        <div class="card-content">
+16:                            <div class="media">
+17:                                <div class="media-left">
+18:                                    <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+19:                                    <article class="media">
+20:                                        <figure class="media-left">
+21:                                            <p class="image is-32x32"> <%# アイコン %>
+22:                                                <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+23:                                            </p>
+24:                                        </figure>
+25:                                    </article>
+26:                                </div>
+27:                                <div class="media-content"> <%# ユーザー名%>
+28:                                    <div class="content">
+29:                                        <p>
+30:                                            <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+31:                                        </p>
+32:                                    </div>
+33:                                </div>
+34:                                <%= picture.tag_list %>
+35:                                <%= if @tags.present? %>
+36:                                
+37:                                    <%=@tags.each do |tag| %>
+38:                                    <%=link_to tag.taggings_count, tags_path(tag.name) %>
+39:                                <%=else %>
+40:                                    <%= p %>
+41:                                <% end %>
+42:                                <% end %>
+43:                            </div>
+44:                        </div>
+45:                    </div>
+46:                </div>
+47:                <% end %>
+48:            </div>
+49:        </div>
+50:    </section>
+  
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:44: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:57: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:44: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:57: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:44: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:57: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:44: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:57: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:44: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:57: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:44: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:57: syntax error, unexpected `end', expecting ')'
+Started GET "/pictures/" for ::1 at 2021-03-11 15:41:18 +0900
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  Rendered pictures/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1368)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 3085)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p class="pt-3"></p>
+<section class="section">
+    <div class="container">
+        <div class="columns is-multiline">
+            <% @pictures.each do |picture| %>
+            <div class="column is-4">
+                <div class="card"> <%# カードコンテンツ開始 %>
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+                            <%= attachment_image_tag picture, :image %>
+                            <% end %>
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+                                <article class="media">
+                                    <figure class="media-left">
+                                        <p class="image is-32x32"> <%# アイコン %>
+                                            <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+                                        </p>
+                                    </figure>
+                                </article>
+                            </div>
+                            <div class="media-content"> <%# ユーザー名%>
+                                <div class="content">
+                                    <p>
+                                        <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <%= picture.tag_list %>
+                            <%= if @tags.present? %>
+                            
+                                <%=@tags.each do |tag| %>
+                                <%=link_to tag.taggings_count, tags_path(tag.name) %>
+                            <%=else %>
+                                <<p></p>
+                            <% end %>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</section>
+):
+1:    <p class="pt-3"></p>
+2:    <section class="section">
+3:        <div class="container">
+4:            <div class="columns is-multiline">
+5:                <% @pictures.each do |picture| %>
+6:                <div class="column is-4">
+7:                    <div class="card"> <%# カードコンテンツ開始 %>
+8:                        <div class="card-image">
+9:                            <figure class="image is-4by3">
+10:                                <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+11:                                <%= attachment_image_tag picture, :image %>
+12:                                <% end %>
+13:                            </figure>
+14:                        </div>
+15:                        <div class="card-content">
+16:                            <div class="media">
+17:                                <div class="media-left">
+18:                                    <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+19:                                    <article class="media">
+20:                                        <figure class="media-left">
+21:                                            <p class="image is-32x32"> <%# アイコン %>
+22:                                                <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+23:                                            </p>
+24:                                        </figure>
+25:                                    </article>
+26:                                </div>
+27:                                <div class="media-content"> <%# ユーザー名%>
+28:                                    <div class="content">
+29:                                        <p>
+30:                                            <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+31:                                        </p>
+32:                                    </div>
+33:                                </div>
+34:                                <%= picture.tag_list %>
+35:                                <%= if @tags.present? %>
+36:                                
+37:                                    <%=@tags.each do |tag| %>
+38:                                    <%=link_to tag.taggings_count, tags_path(tag.name) %>
+39:                                <%=else %>
+40:                                    <<p></p>
+41:                                <% end %>
+42:                                <% end %>
+43:                            </div>
+44:                        </div>
+45:                    </div>
+46:                </div>
+47:                <% end %>
+48:            </div>
+49:        </div>
+50:    </section>
+  
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:44: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:57: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:44: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:57: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:44: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:57: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:44: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:57: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:44: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:57: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:44: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:57: syntax error, unexpected `end', expecting ')'
+Started GET "/pictures/" for ::1 at 2021-03-11 15:41:25 +0900
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  Rendered pictures/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1370)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 3100)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p class="pt-3"></p>
+<section class="section">
+    <div class="container">
+        <div class="columns is-multiline">
+            <% @pictures.each do |picture| %>
+            <div class="column is-4">
+                <div class="card"> <%# カードコンテンツ開始 %>
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+                            <%= attachment_image_tag picture, :image %>
+                            <% end %>
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+                                <article class="media">
+                                    <figure class="media-left">
+                                        <p class="image is-32x32"> <%# アイコン %>
+                                            <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+                                        </p>
+                                    </figure>
+                                </article>
+                            </div>
+                            <div class="media-content"> <%# ユーザー名%>
+                                <div class="content">
+                                    <p>
+                                        <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <%= picture.tag_list %>
+                            <%= if @tags.present? %>
+                            
+                                <%=@tags.each do |tag| %>
+                                <%=link_to tag.taggings_count, tags_path(tag.name) %>
+                            <%=else %>
+                                <p></p>
+                            <% end %>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</section>
+):
+1:    <p class="pt-3"></p>
+2:    <section class="section">
+3:        <div class="container">
+4:            <div class="columns is-multiline">
+5:                <% @pictures.each do |picture| %>
+6:                <div class="column is-4">
+7:                    <div class="card"> <%# カードコンテンツ開始 %>
+8:                        <div class="card-image">
+9:                            <figure class="image is-4by3">
+10:                                <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+11:                                <%= attachment_image_tag picture, :image %>
+12:                                <% end %>
+13:                            </figure>
+14:                        </div>
+15:                        <div class="card-content">
+16:                            <div class="media">
+17:                                <div class="media-left">
+18:                                    <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+19:                                    <article class="media">
+20:                                        <figure class="media-left">
+21:                                            <p class="image is-32x32"> <%# アイコン %>
+22:                                                <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+23:                                            </p>
+24:                                        </figure>
+25:                                    </article>
+26:                                </div>
+27:                                <div class="media-content"> <%# ユーザー名%>
+28:                                    <div class="content">
+29:                                        <p>
+30:                                            <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+31:                                        </p>
+32:                                    </div>
+33:                                </div>
+34:                                <%= picture.tag_list %>
+35:                                <%= if @tags.present? %>
+36:                                
+37:                                    <%=@tags.each do |tag| %>
+38:                                    <%=link_to tag.taggings_count, tags_path(tag.name) %>
+39:                                <%=else %>
+40:                                    <p></p>
+41:                                <% end %>
+42:                                <% end %>
+43:                            </div>
+44:                        </div>
+45:                    </div>
+46:                </div>
+47:                <% end %>
+48:            </div>
+49:        </div>
+50:    </section>
+  
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:44: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:57: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:44: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:57: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:44: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:57: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:44: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:57: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:44: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:57: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:40: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/pictures/index.html.erb:44: syntax error, unexpected `else'
+app/views/pictures/index.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/pictures/index.html.erb:57: syntax error, unexpected `end', expecting ')'
+Started GET "/pictures/" for ::1 at 2021-03-11 15:41:56 +0900
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  [1m[36mPicture Load (0.8ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" ORDER BY "pictures"."created_at" DESC[0m
+  ↳ app/views/pictures/index.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mActsAsTaggableOn::Tagging Load (1.7ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 6], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mActsAsTaggableOn::Tag Load (1.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 6], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mActsAsTaggableOn::Tag Load (0.7ms)[0m  [1m[34mSELECT tags.*, taggings.tags_count AS count FROM "tags" JOIN (SELECT taggings.tag_id, COUNT(taggings.tag_id) AS tags_count FROM "taggings" WHERE (taggings.taggable_type = 'Picture' AND taggings.context = 'tags') AND (taggings.taggable_id IN(SELECT pictures.id FROM "pictures")) GROUP BY taggings.tag_id HAVING (COUNT(taggings.tag_id) > 0)) AS taggings ON taggings.tag_id = tags.id ORDER BY taggings_count desc LIMIT ?[0m  [["LIMIT", 20]]
+  ↳ app/views/pictures/index.html.erb:40
+  Rendered pictures/index.html.erb within layouts/application (Duration: 168.6ms | Allocations: 107144)
+Completed 500 Internal Server Error in 173ms (ActiveRecord: 4.9ms | Allocations: 108873)
+
+
+  
+ActionView::Template::Error (undefined method `tags_path' for #<#<Class:0x00007f81adfb3ea8>:0x00007f81adfb0348>
+Did you mean?  asset_path):
+    38:                         </div>
+    39:                     </div>
+    40:                 </div>
+    41:             </div>
+    42:             <% end %>
+    43:         </div>
+    44:     </div>
+  
+app/views/pictures/index.html.erb:41
+app/views/pictures/index.html.erb:40
+app/views/pictures/index.html.erb:5
+Started GET "/pictures/" for ::1 at 2021-03-11 15:43:10 +0900
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  Rendered pictures/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 1866)
+Completed 500 Internal Server Error in 87ms (ActiveRecord: 1.1ms | Allocations: 16462)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p class="pt-3"></p>
+<section class="section">
+    <div class="container">
+        <div class="columns is-multiline">
+            <% @pictures.each do |picture| %>
+            <div class="column is-4">
+                <div class="card"> <%# カードコンテンツ開始 %>
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+                            <%= attachment_image_tag picture, :image %>
+                            <% end %>
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+                                <article class="media">
+                                    <figure class="media-left">
+                                        <p class="image is-32x32"> <%# アイコン %>
+                                            <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+                                        </p>
+                                    </figure>
+                                </article>
+                            </div>
+                            <div class="media-content"> <%# ユーザー名%>
+                                <div class="content">
+                                    <p>
+                                        <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <%= picture.tag_list %>
+                            <%=@tags.each do |tag| %>
+                            <%=　link_to "#{tag.name}(#{tag.taggings_count})", tags_path(tag.name)　%>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</section>
+):
+1:    <p class="pt-3"></p>
+2:    <section class="section">
+3:        <div class="container">
+4:            <div class="columns is-multiline">
+5:                <% @pictures.each do |picture| %>
+6:                <div class="column is-4">
+7:                    <div class="card"> <%# カードコンテンツ開始 %>
+8:                        <div class="card-image">
+9:                            <figure class="image is-4by3">
+10:                                <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+11:                                <%= attachment_image_tag picture, :image %>
+12:                                <% end %>
+13:                            </figure>
+14:                        </div>
+15:                        <div class="card-content">
+16:                            <div class="media">
+17:                                <div class="media-left">
+18:                                    <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+19:                                    <article class="media">
+20:                                        <figure class="media-left">
+21:                                            <p class="image is-32x32"> <%# アイコン %>
+22:                                                <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+23:                                            </p>
+24:                                        </figure>
+25:                                    </article>
+26:                                </div>
+27:                                <div class="media-content"> <%# ユーザー名%>
+28:                                    <div class="content">
+29:                                        <p>
+30:                                            <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+31:                                        </p>
+32:                                    </div>
+33:                                </div>
+34:                                <%= picture.tag_list %>
+35:                                <%=@tags.each do |tag| %>
+36:                                <%=　link_to "#{tag.name}(#{tag.taggings_count})", tags_path(tag.name)　%>
+37:                                <% end %>
+38:                            </div>
+39:                        </div>
+40:                    </div>
+41:                </div>
+42:                <% end %>
+43:            </div>
+44:        </div>
+45:    </section>
+  
+app/views/pictures/index.html.erb:41: syntax error, unexpected local variable or method, expecting ')'
+app/views/pictures/index.html.erb:41: syntax error, unexpected local variable or method, expecting ')'
+app/views/pictures/index.html.erb:41: syntax error, unexpected local variable or method, expecting ')'
+app/views/pictures/index.html.erb:41: syntax error, unexpected local variable or method, expecting ')'
+app/views/pictures/index.html.erb:41: syntax error, unexpected local variable or method, expecting ')'
+app/views/pictures/index.html.erb:41: syntax error, unexpected local variable or method, expecting ')'
+Started GET "/pictures/" for ::1 at 2021-03-11 15:47:20 +0900
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  [1m[36mPicture Load (0.6ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" ORDER BY "pictures"."created_at" DESC[0m
+  ↳ app/views/pictures/index.html.erb:5
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mActsAsTaggableOn::Tagging Load (0.7ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 6], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mActsAsTaggableOn::Tag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 6], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mActsAsTaggableOn::Tag Load (0.6ms)[0m  [1m[34mSELECT tags.*, taggings.tags_count AS count FROM "tags" JOIN (SELECT taggings.tag_id, COUNT(taggings.tag_id) AS tags_count FROM "taggings" WHERE (taggings.taggable_type = 'Picture' AND taggings.context = 'tags') AND (taggings.taggable_id IN(SELECT pictures.id FROM "pictures")) GROUP BY taggings.tag_id HAVING (COUNT(taggings.tag_id) > 0)) AS taggings ON taggings.tag_id = tags.id ORDER BY taggings_count desc LIMIT ?[0m  [["LIMIT", 20]]
+  ↳ app/views/pictures/index.html.erb:40
+  Rendered pictures/index.html.erb within layouts/application (Duration: 207.2ms | Allocations: 118041)
+Completed 500 Internal Server Error in 285ms (ActiveRecord: 5.4ms | Allocations: 132507)
+
+
+  
+ActionView::Template::Error (undefined method `tags_path' for #<#<Class:0x00007fd30781e520>:0x00007fd3042ce5a0>
+Did you mean?  asset_path):
+    38:                             <% end %>
+    39:                             <% end %>
+    40:                         </div>
+    41:                     </div>
+    42:                 </div>
+    43:             </div>
+    44:             <% end %>
+  
+app/views/pictures/index.html.erb:41
+app/views/pictures/index.html.erb:40
+app/views/pictures/index.html.erb:5
+Started GET "/pictures/" for ::1 at 2021-03-11 15:59:53 +0900
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  [1m[36mPicture Load (1.3ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" ORDER BY "pictures"."created_at" DESC[0m
+  ↳ app/views/pictures/index.html.erb:5
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mActsAsTaggableOn::Tagging Load (0.7ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 6], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mActsAsTaggableOn::Tag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 6], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mActsAsTaggableOn::Tag Load (0.8ms)[0m  [1m[34mSELECT tags.*, taggings.tags_count AS count FROM "tags" JOIN (SELECT taggings.tag_id, COUNT(taggings.tag_id) AS tags_count FROM "taggings" WHERE (taggings.taggable_type = 'Picture' AND taggings.context = 'tags') AND (taggings.taggable_id IN(SELECT pictures.id FROM "pictures")) GROUP BY taggings.tag_id HAVING (COUNT(taggings.tag_id) > 0)) AS taggings ON taggings.tag_id = tags.id ORDER BY taggings_count desc LIMIT ?[0m  [["LIMIT", 20]]
+  ↳ app/views/pictures/index.html.erb:40
+  Rendered pictures/index.html.erb within layouts/application (Duration: 206.0ms | Allocations: 118022)
+Completed 500 Internal Server Error in 291ms (ActiveRecord: 6.5ms | Allocations: 131862)
+
+
+  
+ActionView::Template::Error (undefined method `tags_path' for #<#<Class:0x00007fe2a0c037f0>:0x00007fe2a0c014f0>
+Did you mean?  asset_path):
+    38:                             <% end %>
+    39:                             <% end %>
+    40:                         </div>
+    41:                     </div>
+    42:                 </div>
+    43:             </div>
+    44:             <% end %>
+  
+app/views/pictures/index.html.erb:41
+app/views/pictures/index.html.erb:40
+app/views/pictures/index.html.erb:5
+Started GET "/pictures/" for ::1 at 2021-03-11 16:00:00 +0900
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" ORDER BY "pictures"."created_at" DESC[0m
+  ↳ app/views/pictures/index.html.erb:5
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 6], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mActsAsTaggableOn::Tag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 6], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mActsAsTaggableOn::Tag Load (0.3ms)[0m  [1m[34mSELECT tags.*, taggings.tags_count AS count FROM "tags" JOIN (SELECT taggings.tag_id, COUNT(taggings.tag_id) AS tags_count FROM "taggings" WHERE (taggings.taggable_type = 'Picture' AND taggings.context = 'tags') AND (taggings.taggable_id IN(SELECT pictures.id FROM "pictures")) GROUP BY taggings.tag_id HAVING (COUNT(taggings.tag_id) > 0)) AS taggings ON taggings.tag_id = tags.id ORDER BY taggings_count desc LIMIT ?[0m  [["LIMIT", 20]]
+  ↳ app/views/pictures/index.html.erb:40
+  Rendered pictures/index.html.erb within layouts/application (Duration: 119.5ms | Allocations: 96937)
+Completed 500 Internal Server Error in 121ms (ActiveRecord: 0.9ms | Allocations: 97830)
+
+
+  
+ActionView::Template::Error (undefined method `tags_path' for #<#<Class:0x00007fe2a0c037f0>:0x00007fe2a0ef9888>
+Did you mean?  asset_path):
+    38:                             <% end %>
+    39:                             <% end %>
+    40:                         </div>
+    41:                     </div>
+    42:                 </div>
+    43:             </div>
+    44:             <% end %>
+  
+app/views/pictures/index.html.erb:41
+app/views/pictures/index.html.erb:40
+app/views/pictures/index.html.erb:5
+Started GET "/pictures/" for ::1 at 2021-03-11 16:01:45 +0900
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  [1m[36mPicture Load (0.8ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" ORDER BY "pictures"."created_at" DESC[0m
+  ↳ app/views/pictures/index.html.erb:5
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mActsAsTaggableOn::Tagging Load (0.7ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 6], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mActsAsTaggableOn::Tag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 6], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mActsAsTaggableOn::Tag Load (0.6ms)[0m  [1m[34mSELECT tags.*, taggings.tags_count AS count FROM "tags" JOIN (SELECT taggings.tag_id, COUNT(taggings.tag_id) AS tags_count FROM "taggings" WHERE (taggings.taggable_type = 'Picture' AND taggings.context = 'tags') AND (taggings.taggable_id IN(SELECT pictures.id FROM "pictures")) GROUP BY taggings.tag_id HAVING (COUNT(taggings.tag_id) > 0)) AS taggings ON taggings.tag_id = tags.id ORDER BY taggings_count desc LIMIT ?[0m  [["LIMIT", 20]]
+  ↳ app/views/pictures/index.html.erb:40
+  Rendered pictures/index.html.erb within layouts/application (Duration: 220.9ms | Allocations: 118026)
+Completed 500 Internal Server Error in 303ms (ActiveRecord: 6.4ms | Allocations: 132385)
+
+
+  
+ActionView::Template::Error (undefined method `tags_path' for #<#<Class:0x00007fbc073d18d0>:0x00007fbc073c9ae0>
+Did you mean?  asset_path):
+    38:                             <% end %>
+    39:                             <% end %>
+    40: 
+    41: 
+    42:                             
+    43:                         </div>
+    44:                     </div>
+  
+app/views/pictures/index.html.erb:41
+app/views/pictures/index.html.erb:40
+app/views/pictures/index.html.erb:5
+Started GET "/pictures/" for ::1 at 2021-03-11 16:02:10 +0900
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  Rendered pictures/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 1744)
+Completed 500 Internal Server Error in 88ms (ActiveRecord: 1.0ms | Allocations: 15820)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p class="pt-3"></p>
+<section class="section">
+    <div class="container">
+        <div class="columns is-multiline">
+            <% @pictures.each do |picture| %>
+            <div class="column is-4">
+                <div class="card"> <%# カードコンテンツ開始 %>
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+                            <%= attachment_image_tag picture, :image %>
+                            <% end %>
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+                                <article class="media">
+                                    <figure class="media-left">
+                                        <p class="image is-32x32"> <%# アイコン %>
+                                            <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+                                        </p>
+                                    </figure>
+                                </article>
+                            </div>
+                            <div class="media-content"> <%# ユーザー名%>
+                                <div class="content">
+                                    <p>
+                                        <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <%= picture.tag_list %>
+                            <%=@tags.each do |tag| %>
+                            
+                            <%= tag.taggings_count :tag.name %>
+                            <% end %>
+                            <% end %>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</section>
+):
+1:    <p class="pt-3"></p>
+2:    <section class="section">
+3:        <div class="container">
+4:            <div class="columns is-multiline">
+5:                <% @pictures.each do |picture| %>
+6:                <div class="column is-4">
+7:                    <div class="card"> <%# カードコンテンツ開始 %>
+8:                        <div class="card-image">
+9:                            <figure class="image is-4by3">
+10:                                <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+11:                                <%= attachment_image_tag picture, :image %>
+12:                                <% end %>
+13:                            </figure>
+14:                        </div>
+15:                        <div class="card-content">
+16:                            <div class="media">
+17:                                <div class="media-left">
+18:                                    <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+19:                                    <article class="media">
+20:                                        <figure class="media-left">
+21:                                            <p class="image is-32x32"> <%# アイコン %>
+22:                                                <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+23:                                            </p>
+24:                                        </figure>
+25:                                    </article>
+26:                                </div>
+27:                                <div class="media-content"> <%# ユーザー名%>
+28:                                    <div class="content">
+29:                                        <p>
+30:                                            <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+31:                                        </p>
+32:                                    </div>
+33:                                </div>
+34:                                <%= picture.tag_list %>
+35:                                <%=@tags.each do |tag| %>
+36:                                
+37:                                <%= tag.taggings_count :tag.name %>
+38:                                <% end %>
+39:                                <% end %>
+40:                                
+41:                            </div>
+42:                        </div>
+43:                    </div>
+44:                </div>
+45:                <% end %>
+46:            </div>
+47:        </div>
+48:    </section>
+  
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+Started GET "/pictures/" for ::1 at 2021-03-11 16:02:33 +0900
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  Rendered pictures/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1744)
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 0.8ms | Allocations: 15676)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p class="pt-3"></p>
+<section class="section">
+    <div class="container">
+        <div class="columns is-multiline">
+            <% @pictures.each do |picture| %>
+            <div class="column is-4">
+                <div class="card"> <%# カードコンテンツ開始 %>
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+                            <%= attachment_image_tag picture, :image %>
+                            <% end %>
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+                                <article class="media">
+                                    <figure class="media-left">
+                                        <p class="image is-32x32"> <%# アイコン %>
+                                            <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+                                        </p>
+                                    </figure>
+                                </article>
+                            </div>
+                            <div class="media-content"> <%# ユーザー名%>
+                                <div class="content">
+                                    <p>
+                                        <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <%= picture.tag_list %>
+                            <%=@tags.each do |tag| %>
+                            
+                            <%= tag.taggings_count %>
+                            <% end %>
+                            <% end %>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</section>
+):
+1:    <p class="pt-3"></p>
+2:    <section class="section">
+3:        <div class="container">
+4:            <div class="columns is-multiline">
+5:                <% @pictures.each do |picture| %>
+6:                <div class="column is-4">
+7:                    <div class="card"> <%# カードコンテンツ開始 %>
+8:                        <div class="card-image">
+9:                            <figure class="image is-4by3">
+10:                                <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+11:                                <%= attachment_image_tag picture, :image %>
+12:                                <% end %>
+13:                            </figure>
+14:                        </div>
+15:                        <div class="card-content">
+16:                            <div class="media">
+17:                                <div class="media-left">
+18:                                    <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+19:                                    <article class="media">
+20:                                        <figure class="media-left">
+21:                                            <p class="image is-32x32"> <%# アイコン %>
+22:                                                <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+23:                                            </p>
+24:                                        </figure>
+25:                                    </article>
+26:                                </div>
+27:                                <div class="media-content"> <%# ユーザー名%>
+28:                                    <div class="content">
+29:                                        <p>
+30:                                            <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+31:                                        </p>
+32:                                    </div>
+33:                                </div>
+34:                                <%= picture.tag_list %>
+35:                                <%=@tags.each do |tag| %>
+36:                                
+37:                                <%= tag.taggings_count %>
+38:                                <% end %>
+39:                                <% end %>
+40:                                
+41:                            </div>
+42:                        </div>
+43:                    </div>
+44:                </div>
+45:                <% end %>
+46:            </div>
+47:        </div>
+48:    </section>
+  
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+Started GET "/pictures/" for ::1 at 2021-03-11 16:06:15 +0900
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  Rendered pictures/index.html.erb within layouts/application (Duration: 9.1ms | Allocations: 1761)
+Completed 500 Internal Server Error in 96ms (ActiveRecord: 1.5ms | Allocations: 15818)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p class="pt-3"></p>
+<section class="section">
+    <div class="container">
+        <div class="columns is-multiline">
+            <% @pictures.each do |picture| %>
+            <div class="column is-4">
+                <div class="card"> <%# カードコンテンツ開始 %>
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+                            <%= attachment_image_tag picture, :image %>
+                            <% end %>
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+                                <article class="media">
+                                    <figure class="media-left">
+                                        <p class="image is-32x32"> <%# アイコン %>
+                                            <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+                                        </p>
+                                    </figure>
+                                </article>
+                            </div>
+                            <div class="media-content"> <%# ユーザー名%>
+                                <div class="content">
+                                    <p>
+                                        <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <%= picture.tag_list %>
+                            <%=@tags.each do |tag| %>
+                            <%= render 'tasks/tag_list', tag_list: task.tag_list %>
+                            <%= tag.taggings_count %>
+                            <% end %>
+                            <% end %>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</section>
+):
+1:    <p class="pt-3"></p>
+2:    <section class="section">
+3:        <div class="container">
+4:            <div class="columns is-multiline">
+5:                <% @pictures.each do |picture| %>
+6:                <div class="column is-4">
+7:                    <div class="card"> <%# カードコンテンツ開始 %>
+8:                        <div class="card-image">
+9:                            <figure class="image is-4by3">
+10:                                <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+11:                                <%= attachment_image_tag picture, :image %>
+12:                                <% end %>
+13:                            </figure>
+14:                        </div>
+15:                        <div class="card-content">
+16:                            <div class="media">
+17:                                <div class="media-left">
+18:                                    <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+19:                                    <article class="media">
+20:                                        <figure class="media-left">
+21:                                            <p class="image is-32x32"> <%# アイコン %>
+22:                                                <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+23:                                            </p>
+24:                                        </figure>
+25:                                    </article>
+26:                                </div>
+27:                                <div class="media-content"> <%# ユーザー名%>
+28:                                    <div class="content">
+29:                                        <p>
+30:                                            <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+31:                                        </p>
+32:                                    </div>
+33:                                </div>
+34:                                <%= picture.tag_list %>
+35:                                <%=@tags.each do |tag| %>
+36:                                <%= render 'tasks/tag_list', tag_list: task.tag_list %>
+37:                                <%= tag.taggings_count %>
+38:                                <% end %>
+39:                                <% end %>
+40:                                
+41:                            </div>
+42:                        </div>
+43:                    </div>
+44:                </div>
+45:                <% end %>
+46:            </div>
+47:        </div>
+48:    </section>
+  
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+Started GET "/pictures/" for ::1 at 2021-03-11 16:06:24 +0900
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  Rendered pictures/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1354)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 3083)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p class="pt-3"></p>
+<section class="section">
+    <div class="container">
+        <div class="columns is-multiline">
+            <% @pictures.each do |picture| %>
+            <div class="column is-4">
+                <div class="card"> <%# カードコンテンツ開始 %>
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+                            <%= attachment_image_tag picture, :image %>
+                            <% end %>
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+                                <article class="media">
+                                    <figure class="media-left">
+                                        <p class="image is-32x32"> <%# アイコン %>
+                                            <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+                                        </p>
+                                    </figure>
+                                </article>
+                            </div>
+                            <div class="media-content"> <%# ユーザー名%>
+                                <div class="content">
+                                    <p>
+                                        <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <%= picture.tag_list %>
+                            <%=@tags.each do |tag| %>
+                            <%= render 'tasks/tag_list', tag_list: task.tag_list %>
+                            <%= tag.taggings_count %>
+                            <% end %>
+                            <% end %>
+                            <% end %>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</section>
+):
+1:    <p class="pt-3"></p>
+2:    <section class="section">
+3:        <div class="container">
+4:            <div class="columns is-multiline">
+5:                <% @pictures.each do |picture| %>
+6:                <div class="column is-4">
+7:                    <div class="card"> <%# カードコンテンツ開始 %>
+8:                        <div class="card-image">
+9:                            <figure class="image is-4by3">
+10:                                <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+11:                                <%= attachment_image_tag picture, :image %>
+12:                                <% end %>
+13:                            </figure>
+14:                        </div>
+15:                        <div class="card-content">
+16:                            <div class="media">
+17:                                <div class="media-left">
+18:                                    <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+19:                                    <article class="media">
+20:                                        <figure class="media-left">
+21:                                            <p class="image is-32x32"> <%# アイコン %>
+22:                                                <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+23:                                            </p>
+24:                                        </figure>
+25:                                    </article>
+26:                                </div>
+27:                                <div class="media-content"> <%# ユーザー名%>
+28:                                    <div class="content">
+29:                                        <p>
+30:                                            <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+31:                                        </p>
+32:                                    </div>
+33:                                </div>
+34:                                <%= picture.tag_list %>
+35:                                <%=@tags.each do |tag| %>
+36:                                <%= render 'tasks/tag_list', tag_list: task.tag_list %>
+37:                                <%= tag.taggings_count %>
+38:                                <% end %>
+39:                                <% end %>
+40:                                <% end %>
+41:                                
+42:                            </div>
+43:                        </div>
+44:                    </div>
+45:                </div>
+46:                <% end %>
+47:            </div>
+48:        </div>
+49:    </section>
+  
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:51: syntax error, unexpected `end', expecting end-of-input
+Started GET "/pictures/" for ::1 at 2021-03-11 16:06:34 +0900
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  [1m[36mPicture Load (0.7ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" ORDER BY "pictures"."created_at" DESC[0m
+  ↳ app/views/pictures/index.html.erb:5
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mActsAsTaggableOn::Tagging Load (0.6ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 6], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mActsAsTaggableOn::Tag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 6], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mActsAsTaggableOn::Tag Load (0.7ms)[0m  [1m[34mSELECT tags.*, taggings.tags_count AS count FROM "tags" JOIN (SELECT taggings.tag_id, COUNT(taggings.tag_id) AS tags_count FROM "taggings" WHERE (taggings.taggable_type = 'Picture' AND taggings.context = 'tags') AND (taggings.taggable_id IN(SELECT pictures.id FROM "pictures")) GROUP BY taggings.tag_id HAVING (COUNT(taggings.tag_id) > 0)) AS taggings ON taggings.tag_id = tags.id ORDER BY taggings_count desc LIMIT ?[0m  [["LIMIT", 20]]
+  ↳ app/views/pictures/index.html.erb:40
+  Rendered pictures/index.html.erb within layouts/application (Duration: 349.0ms | Allocations: 204921)
+Completed 500 Internal Server Error in 353ms (ActiveRecord: 5.2ms | Allocations: 206649)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `task' for #<#<Class:0x00007fb66cb37570>:0x00007fb66cb359c8>
+Did you mean?  @tags):
+    38:                             <% end %>
+    39:                             
+    40:                             
+    41:                         </div>
+    42:                     </div>
+    43:                 </div>
+    44:             </div>
+  
+app/views/pictures/index.html.erb:41
+app/views/pictures/index.html.erb:40
+app/views/pictures/index.html.erb:5
+Started GET "/pictures/" for ::1 at 2021-03-11 16:06:46 +0900
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" ORDER BY "pictures"."created_at" DESC[0m
+  ↳ app/views/pictures/index.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 6], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mActsAsTaggableOn::Tag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 6], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mActsAsTaggableOn::Tag Load (0.8ms)[0m  [1m[34mSELECT tags.*, taggings.tags_count AS count FROM "tags" JOIN (SELECT taggings.tag_id, COUNT(taggings.tag_id) AS tags_count FROM "taggings" WHERE (taggings.taggable_type = 'Picture' AND taggings.context = 'tags') AND (taggings.taggable_id IN(SELECT pictures.id FROM "pictures")) GROUP BY taggings.tag_id HAVING (COUNT(taggings.tag_id) > 0)) AS taggings ON taggings.tag_id = tags.id ORDER BY taggings_count desc LIMIT ?[0m  [["LIMIT", 20]]
+  ↳ app/views/pictures/index.html.erb:40
+  Rendered pictures/index.html.erb within layouts/application (Duration: 12.4ms | Allocations: 7156)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 1.6ms | Allocations: 8884)
+
+
+  
+ActionView::Template::Error (Missing partial pictures/_tag_list with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/Users/kujirauo/Applications/rails_apps/fen/marine37mary/app/views"
+  * "/Users/kujirauo/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views"
+  * "/Users/kujirauo/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actiontext-6.0.3.5/app/views"
+  * "/Users/kujirauo/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionmailbox-6.0.3.5/app/views"
+):
+    38:                             <% end %>
+    39:                             
+    40:                             
+    41:                         </div>
+    42:                     </div>
+    43:                 </div>
+    44:             </div>
+  
+app/views/pictures/index.html.erb:41
+app/views/pictures/index.html.erb:40
+app/views/pictures/index.html.erb:5
+Started GET "/pictures/" for ::1 at 2021-03-11 16:09:32 +0900
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  Rendered pictures/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1324)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 3040)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p class="pt-3"></p>
+<section class="section">
+    <div class="container">
+        <div class="columns is-multiline">
+            <% @pictures.each do |picture| %>
+            <div class="column is-4">
+                <div class="card"> <%# カードコンテンツ開始 %>
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+                            <%= attachment_image_tag picture, :image %>
+                            <% end %>
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+                                <article class="media">
+                                    <figure class="media-left">
+                                        <p class="image is-32x32"> <%# アイコン %>
+                                            <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+                                        </p>
+                                    </figure>
+                                </article>
+                            </div>
+                            <div class="media-content"> <%# ユーザー名%>
+                                <div class="content">
+                                    <p>
+                                        <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <%= picture.tag_list %>
+                            <%#@tags.each do |tag| %>
+                            <%# render 'pictures/tag_list', tag_list: picture.tag_list %>
+                            <%# tag.taggings_count %>
+                            <% end %>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</section>
+):
+1:    <p class="pt-3"></p>
+2:    <section class="section">
+3:        <div class="container">
+4:            <div class="columns is-multiline">
+5:                <% @pictures.each do |picture| %>
+6:                <div class="column is-4">
+7:                    <div class="card"> <%# カードコンテンツ開始 %>
+8:                        <div class="card-image">
+9:                            <figure class="image is-4by3">
+10:                                <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+11:                                <%= attachment_image_tag picture, :image %>
+12:                                <% end %>
+13:                            </figure>
+14:                        </div>
+15:                        <div class="card-content">
+16:                            <div class="media">
+17:                                <div class="media-left">
+18:                                    <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+19:                                    <article class="media">
+20:                                        <figure class="media-left">
+21:                                            <p class="image is-32x32"> <%# アイコン %>
+22:                                                <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+23:                                            </p>
+24:                                        </figure>
+25:                                    </article>
+26:                                </div>
+27:                                <div class="media-content"> <%# ユーザー名%>
+28:                                    <div class="content">
+29:                                        <p>
+30:                                            <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+31:                                        </p>
+32:                                    </div>
+33:                                </div>
+34:                                <%= picture.tag_list %>
+35:                                <%#@tags.each do |tag| %>
+36:                                <%# render 'pictures/tag_list', tag_list: picture.tag_list %>
+37:                                <%# tag.taggings_count %>
+38:                                <% end %>
+39:                                
+40:                                
+41:                            </div>
+42:                        </div>
+43:                    </div>
+44:                </div>
+45:                <% end %>
+46:            </div>
+47:        </div>
+48:    </section>
+  
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+Started GET "/pictures/" for ::1 at 2021-03-11 16:09:34 +0900
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  Rendered pictures/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1313)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2206)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p class="pt-3"></p>
+<section class="section">
+    <div class="container">
+        <div class="columns is-multiline">
+            <% @pictures.each do |picture| %>
+            <div class="column is-4">
+                <div class="card"> <%# カードコンテンツ開始 %>
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+                            <%= attachment_image_tag picture, :image %>
+                            <% end %>
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+                                <article class="media">
+                                    <figure class="media-left">
+                                        <p class="image is-32x32"> <%# アイコン %>
+                                            <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+                                        </p>
+                                    </figure>
+                                </article>
+                            </div>
+                            <div class="media-content"> <%# ユーザー名%>
+                                <div class="content">
+                                    <p>
+                                        <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <%= picture.tag_list %>
+                            <%#@tags.each do |tag| %>
+                            <%# render 'pictures/tag_list', tag_list: picture.tag_list %>
+                            <%# tag.taggings_count %>
+                            <% end %>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</section>
+):
+1:    <p class="pt-3"></p>
+2:    <section class="section">
+3:        <div class="container">
+4:            <div class="columns is-multiline">
+5:                <% @pictures.each do |picture| %>
+6:                <div class="column is-4">
+7:                    <div class="card"> <%# カードコンテンツ開始 %>
+8:                        <div class="card-image">
+9:                            <figure class="image is-4by3">
+10:                                <%= link_to picture_path(picture) do %> <%# 絵の画像 %>
+11:                                <%= attachment_image_tag picture, :image %>
+12:                                <% end %>
+13:                            </figure>
+14:                        </div>
+15:                        <div class="card-content">
+16:                            <div class="media">
+17:                                <div class="media-left">
+18:                                    <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
+19:                                    <article class="media">
+20:                                        <figure class="media-left">
+21:                                            <p class="image is-32x32"> <%# アイコン %>
+22:                                                <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+23:                                            </p>
+24:                                        </figure>
+25:                                    </article>
+26:                                </div>
+27:                                <div class="media-content"> <%# ユーザー名%>
+28:                                    <div class="content">
+29:                                        <p>
+30:                                            <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+31:                                        </p>
+32:                                    </div>
+33:                                </div>
+34:                                <%= picture.tag_list %>
+35:                                <%#@tags.each do |tag| %>
+36:                                <%# render 'pictures/tag_list', tag_list: picture.tag_list %>
+37:                                <%# tag.taggings_count %>
+38:                                <% end %>
+39:                                
+40:                                
+41:                            </div>
+42:                        </div>
+43:                    </div>
+44:                </div>
+45:                <% end %>
+46:            </div>
+47:        </div>
+48:    </section>
+  
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+app/views/pictures/index.html.erb:55: syntax error, unexpected `end', expecting end-of-input
+Started GET "/pictures/" for ::1 at 2021-03-11 16:09:41 +0900
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" ORDER BY "pictures"."created_at" DESC[0m
+  ↳ app/views/pictures/index.html.erb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 6], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mActsAsTaggableOn::Tag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 6], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 5], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mActsAsTaggableOn::Tag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 5], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 4], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mActsAsTaggableOn::Tag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 4], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mActsAsTaggableOn::Tagging Load (0.2ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 3], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mActsAsTaggableOn::Tag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 3], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mActsAsTaggableOn::Tagging Load (0.2ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 2], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mActsAsTaggableOn::Tag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 2], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mActsAsTaggableOn::Tagging Load (0.1ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ?[0m  [["taggable_id", 1], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  [1m[36mActsAsTaggableOn::Tag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 1], ["taggable_type", "Picture"]]
+  ↳ app/views/pictures/index.html.erb:39
+  Rendered pictures/index.html.erb within layouts/application (Duration: 55.0ms | Allocations: 28078)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:28
+Completed 200 OK in 91ms (Views: 85.6ms | ActiveRecord: 3.2ms | Allocations: 35577)
+
+
+Started GET "/pictures/new" for ::1 at 2021-03-11 16:11:02 +0900
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (Duration: 34.6ms | Allocations: 11333)
+Completed 500 Internal Server Error in 160ms (ActiveRecord: 1.8ms | Allocations: 34395)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    32:                 <div class="field">
+    33:                     <%=f.label :tag_list %>
+    34:                     <%#f.text_field :tag_list, class:'form-control', value: @picture.tag_list.join(',')%>
+    35:                     <%= @tags.each do |tag| %>
+    36:                     <%=f.check_box :tag_list, { multiple: true }, "#{tag.name}", nil %>
+    37:                     <%=f.label " #{tag.name}(#{tag.taggings_count})" %>
+    38:                     <% end %>
+  
+app/views/pictures/new.html.erb:35
+app/views/pictures/new.html.erb:16
