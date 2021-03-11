@@ -7,10 +7,15 @@ class PicturesController < ApplicationController
     #@pictures = @q.result(distinct: true).page(params[:page])
     #@pictures = @q.result(distinct: true)
     #picturesの一覧が消える
-    @tags = Picture.tag_counts_on(:tags).most_used(20)
-    if params[:tag_name]
-      @pictures = Picture.tagged_with("#{params[:tag_name]}")
-    end
+    #@tags = Picture.tag_counts_on(:tags).most_used(20)
+    #if params[:tag_name]
+    #  @pictures = Picture.tagged_with("#{params[:tag_name]}")
+    #end
+    @tags = Picture.tag_counts_on(:tags)
+    #@tags = picture.tag_counts_on(:tags).order('count DESC')#全タグ(pictureモデルからtagsカラムを降順で取得)
+    #if @tag = params[:tag]  # タグ検索用
+    #  @picture = picture.tagged_with(params[:tag])   # タグに紐付く投稿
+    #end
   end
 
   def show
@@ -21,6 +26,7 @@ class PicturesController < ApplicationController
 
   def new
     @picture = Picture.new
+    @tags = @picture.tag_counts_on(:tags)
   end
 
   def create
@@ -30,6 +36,7 @@ class PicturesController < ApplicationController
     else
       render :new
     end
+    
   end
 
   def edit
