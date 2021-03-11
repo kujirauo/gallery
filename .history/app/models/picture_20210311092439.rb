@@ -11,7 +11,7 @@ class Picture < ApplicationRecord
     #has_many :tags, through: :picture_tag_relations, dependent: :destroy
     
     acts_as_taggable
-
+    
     with_options presence: true do
         validates :title
         validates :body

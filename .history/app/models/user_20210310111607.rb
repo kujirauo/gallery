@@ -11,8 +11,6 @@ class User < ApplicationRecord
   attachment :profile_image
   validates :username, presence: true
 
-  
-
   def already_liked?(picture)
     self.likes.exists?(picture_id: picture.id)
   end

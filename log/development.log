@@ -18241,3 +18241,570 @@ ActionController::ParameterMissing (param is missing or the value is empty: pict
   
 app/controllers/pictures_controller.rb:63:in `picture_params'
 app/controllers/pictures_controller.rb:22:in `create'
+Started POST "/pictures" for ::1 at 2021-03-11 11:48:24 +0900
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#create as HTML
+  Parameters: {"authenticity_token"=>"rL+QgckfWsGZI6OMBx9CR8UlhUbM8pqhTis66QdpYTLHrpMAXex172xq5QuAEgFE5SwsOmAs8My+e0PAgYCpMg==", "name"=>"test4", "commit"=>"保存"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 400 Bad Request in 84ms (ActiveRecord: 2.3ms | Allocations: 18071)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: picture):
+  
+app/controllers/pictures_controller.rb:63:in `picture_params'
+app/controllers/pictures_controller.rb:22:in `create'
+Started GET "/pictures/new" for ::1 at 2021-03-11 11:53:30 +0900
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (Duration: 23.0ms | Allocations: 2114)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 126ms (Views: 60.4ms | ActiveRecord: 1.8ms | Allocations: 28837)
+
+
+Started GET "/pictures/new" for ::1 at 2021-03-11 11:56:20 +0900
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (Duration: 11.1ms | Allocations: 1803)
+Completed 500 Internal Server Error in 99ms (ActiveRecord: 2.1ms | Allocations: 25784)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% if @picture.errors.any? %>
+<div class="notification is-danger">
+    <h2><%= pluralize(@picture.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>
+    <ul>
+        <% @picture.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-6">
+                <%= form_for @picture do |f| %>
+                <div class="field">
+                    <%= f.label :title, "title", class: "label" %>
+                    <%= f.text_field :title, class: "input" %>
+                </div>
+
+                <div class="field">
+                    <%= f.label :body, "詳細", class: "label" %>
+                    <%= f.text_area :body, class: "textarea" %>
+                </div>
+
+                <div class="field">
+                    <%= f.label :image, "画像", class: "label" %>
+                    <%= f.attachment_field :image, class: "input" %>
+                </div>
+
+                <div class="field">
+                    <%=f.label :tag_list %>
+                    <%=f.text_field :tag_list, class: 'form-control', value: @picture.tag_list.join(','),%>
+                </div>
+
+                <%= f.submit '投稿', class: "button is-info" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</section>
+):
+1:    <% if @picture.errors.any? %>
+2:    <div class="notification is-danger">
+3:        <h2><%= pluralize(@picture.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>
+4:        <ul>
+5:            <% @picture.errors.full_messages.each do |message| %>
+6:            <li><%= message %></li>
+7:            <% end %>
+8:        </ul>
+9:    </div>
+10:    <% end %>
+11:    
+12:    <section class="section">
+13:        <div class="container">
+14:            <div class="columns is-centered">
+15:                <div class="column is-6">
+16:                    <%= form_for @picture do |f| %>
+17:                    <div class="field">
+18:                        <%= f.label :title, "title", class: "label" %>
+19:                        <%= f.text_field :title, class: "input" %>
+20:                    </div>
+21:    
+22:                    <div class="field">
+23:                        <%= f.label :body, "詳細", class: "label" %>
+24:                        <%= f.text_area :body, class: "textarea" %>
+25:                    </div>
+26:    
+27:                    <div class="field">
+28:                        <%= f.label :image, "画像", class: "label" %>
+29:                        <%= f.attachment_field :image, class: "input" %>
+30:                    </div>
+31:    
+32:                    <div class="field">
+33:                        <%=f.label :tag_list %>
+34:                        <%=f.text_field :tag_list, class: 'form-control', value: @picture.tag_list.join(','),%>
+35:                    </div>
+36:    
+37:                    <%= f.submit '投稿', class: "button is-info" %>
+38:                    <% end %>
+39:                </div>
+40:            </div>
+41:        </div>
+42:    </section>
+  
+app/views/pictures/new.html.erb:34: syntax error, unexpected ')'
+app/views/pictures/new.html.erb:38: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:44: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:34: syntax error, unexpected ')'
+app/views/pictures/new.html.erb:38: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:44: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:34: syntax error, unexpected ')'
+app/views/pictures/new.html.erb:38: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:44: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:34: syntax error, unexpected ')'
+app/views/pictures/new.html.erb:38: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:44: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:34: syntax error, unexpected ')'
+app/views/pictures/new.html.erb:38: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:44: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:34: syntax error, unexpected ')'
+app/views/pictures/new.html.erb:38: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:44: syntax error, unexpected `end', expecting ')'
+Started GET "/pictures/new" for ::1 at 2021-03-11 11:57:42 +0900
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (Duration: 16.0ms | Allocations: 1724)
+Completed 500 Internal Server Error in 120ms (ActiveRecord: 1.8ms | Allocations: 25142)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% if @picture.errors.any? %>
+<div class="notification is-danger">
+    <h2><%= pluralize(@picture.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>
+    <ul>
+        <% @picture.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-6">
+                <%= form_for @picture do |f| %>
+                <div class="field">
+                    <%= f.label :title, "title", class: "label" %>
+                    <%= f.text_field :title, class: "input" %>
+                </div>
+
+                <div class="field">
+                    <%= f.label :body, "詳細", class: "label" %>
+                    <%= f.text_area :body, class: "textarea" %>
+                </div>
+
+                <div class="field">
+                    <%= f.label :image, "画像", class: "label" %>
+                    <%= f.attachment_field :image, class: "input" %>
+                </div>
+
+                <div class="field">
+                    <%=f.label :tag_list %>
+                    <%=f.text_field :tag_list, class: 'form-control', @picture.tag_list.join(','),%>
+                </div>
+
+                <%= f.submit '投稿', class: "button is-info" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</section>
+):
+1:    <% if @picture.errors.any? %>
+2:    <div class="notification is-danger">
+3:        <h2><%= pluralize(@picture.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>
+4:        <ul>
+5:            <% @picture.errors.full_messages.each do |message| %>
+6:            <li><%= message %></li>
+7:            <% end %>
+8:        </ul>
+9:    </div>
+10:    <% end %>
+11:    
+12:    <section class="section">
+13:        <div class="container">
+14:            <div class="columns is-centered">
+15:                <div class="column is-6">
+16:                    <%= form_for @picture do |f| %>
+17:                    <div class="field">
+18:                        <%= f.label :title, "title", class: "label" %>
+19:                        <%= f.text_field :title, class: "input" %>
+20:                    </div>
+21:    
+22:                    <div class="field">
+23:                        <%= f.label :body, "詳細", class: "label" %>
+24:                        <%= f.text_area :body, class: "textarea" %>
+25:                    </div>
+26:    
+27:                    <div class="field">
+28:                        <%= f.label :image, "画像", class: "label" %>
+29:                        <%= f.attachment_field :image, class: "input" %>
+30:                    </div>
+31:    
+32:                    <div class="field">
+33:                        <%=f.label :tag_list %>
+34:                        <%=f.text_field :tag_list, class: 'form-control', @picture.tag_list.join(','),%>
+35:                    </div>
+36:    
+37:                    <%= f.submit '投稿', class: "button is-info" %>
+38:                    <% end %>
+39:                </div>
+40:            </div>
+41:        </div>
+42:    </section>
+  
+app/views/pictures/new.html.erb:34: syntax error, unexpected ',', expecting =>
+app/views/pictures/new.html.erb:38: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:44: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:34: syntax error, unexpected ',', expecting =>
+app/views/pictures/new.html.erb:38: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:44: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:34: syntax error, unexpected ',', expecting =>
+app/views/pictures/new.html.erb:38: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:44: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:34: syntax error, unexpected ',', expecting =>
+app/views/pictures/new.html.erb:38: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:44: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:34: syntax error, unexpected ',', expecting =>
+app/views/pictures/new.html.erb:38: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:44: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:34: syntax error, unexpected ',', expecting =>
+app/views/pictures/new.html.erb:38: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:44: syntax error, unexpected `end', expecting ')'
+Started GET "/pictures/new" for ::1 at 2021-03-11 11:59:24 +0900
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (Duration: 18.2ms | Allocations: 1856)
+Completed 500 Internal Server Error in 114ms (ActiveRecord: 2.4ms | Allocations: 25167)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% if @picture.errors.any? %>
+<div class="notification is-danger">
+    <h2><%= pluralize(@picture.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>
+    <ul>
+        <% @picture.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-6">
+                <%= form_for @picture do |f| %>
+                <div class="field">
+                    <%= f.label :title, "title", class: "label" %>
+                    <%= f.text_field :title, class: "input" %>
+                </div>
+
+                <div class="field">
+                    <%= f.label :body, "詳細", class: "label" %>
+                    <%= f.text_area :body, class: "textarea" %>
+                </div>
+
+                <div class="field">
+                    <%= f.label :image, "画像", class: "label" %>
+                    <%= f.attachment_field :image, class: "input" %>
+                </div>
+
+                <div class="field">
+                    <%=f.label :tag_list %>
+                    <%=f.text_field :tag_list, class: 'form-control', value: @picture.tag_list.join(','),%>
+                </div>
+
+                <%= f.submit '投稿', class: "button is-info" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</section>
+):
+1:    <% if @picture.errors.any? %>
+2:    <div class="notification is-danger">
+3:        <h2><%= pluralize(@picture.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>
+4:        <ul>
+5:            <% @picture.errors.full_messages.each do |message| %>
+6:            <li><%= message %></li>
+7:            <% end %>
+8:        </ul>
+9:    </div>
+10:    <% end %>
+11:    
+12:    <section class="section">
+13:        <div class="container">
+14:            <div class="columns is-centered">
+15:                <div class="column is-6">
+16:                    <%= form_for @picture do |f| %>
+17:                    <div class="field">
+18:                        <%= f.label :title, "title", class: "label" %>
+19:                        <%= f.text_field :title, class: "input" %>
+20:                    </div>
+21:    
+22:                    <div class="field">
+23:                        <%= f.label :body, "詳細", class: "label" %>
+24:                        <%= f.text_area :body, class: "textarea" %>
+25:                    </div>
+26:    
+27:                    <div class="field">
+28:                        <%= f.label :image, "画像", class: "label" %>
+29:                        <%= f.attachment_field :image, class: "input" %>
+30:                    </div>
+31:    
+32:                    <div class="field">
+33:                        <%=f.label :tag_list %>
+34:                        <%=f.text_field :tag_list, class: 'form-control', value: @picture.tag_list.join(','),%>
+35:                    </div>
+36:    
+37:                    <%= f.submit '投稿', class: "button is-info" %>
+38:                    <% end %>
+39:                </div>
+40:            </div>
+41:        </div>
+42:    </section>
+  
+app/views/pictures/new.html.erb:34: syntax error, unexpected ')'
+app/views/pictures/new.html.erb:38: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:44: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:34: syntax error, unexpected ')'
+app/views/pictures/new.html.erb:38: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:44: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:34: syntax error, unexpected ')'
+app/views/pictures/new.html.erb:38: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:44: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:34: syntax error, unexpected ')'
+app/views/pictures/new.html.erb:38: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:44: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:34: syntax error, unexpected ')'
+app/views/pictures/new.html.erb:38: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:44: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:34: syntax error, unexpected ')'
+app/views/pictures/new.html.erb:38: syntax error, unexpected `end', expecting ')'
+app/views/pictures/new.html.erb:44: syntax error, unexpected `end', expecting ')'
+Started GET "/pictures/new" for ::1 at 2021-03-11 11:59:37 +0900
+Processing by PicturesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1314)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms | Allocations: 4084)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% if @picture.errors.any? %>
+<div class="notification is-danger">
+    <h2><%= pluralize(@picture.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>
+    <ul>
+        <% @picture.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-6">
+                <%= form_for @picture do |f| %>
+                <div class="field">
+                    <%= f.label :title, "title", class: "label" %>
+                    <%= f.text_field :title, class: "input" %>
+                </div>
+
+                <div class="field">
+                    <%= f.label :body, "詳細", class: "label" %>
+                    <%= f.text_area :body, class: "textarea" %>
+                </div>
+
+                <div class="field">
+                    <%= f.label :image, "画像", class: "label" %>
+                    <%= f.attachment_field :image, class: "input" %>
+                </div>
+
+                <div class="field">
+                    <%=f.label :tag_list %>
+                    <%=f.text_field :tag_list, class: 'form-control', #value: @picture.tag_list.join(','),#%>
+                </div>
+
+                <%= f.submit '投稿', class: "button is-info" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</section>
+):
+1:    <% if @picture.errors.any? %>
+2:    <div class="notification is-danger">
+3:        <h2><%= pluralize(@picture.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>
+4:        <ul>
+5:            <% @picture.errors.full_messages.each do |message| %>
+6:            <li><%= message %></li>
+7:            <% end %>
+8:        </ul>
+9:    </div>
+10:    <% end %>
+11:    
+12:    <section class="section">
+13:        <div class="container">
+14:            <div class="columns is-centered">
+15:                <div class="column is-6">
+16:                    <%= form_for @picture do |f| %>
+17:                    <div class="field">
+18:                        <%= f.label :title, "title", class: "label" %>
+19:                        <%= f.text_field :title, class: "input" %>
+20:                    </div>
+21:    
+22:                    <div class="field">
+23:                        <%= f.label :body, "詳細", class: "label" %>
+24:                        <%= f.text_area :body, class: "textarea" %>
+25:                    </div>
+26:    
+27:                    <div class="field">
+28:                        <%= f.label :image, "画像", class: "label" %>
+29:                        <%= f.attachment_field :image, class: "input" %>
+30:                    </div>
+31:    
+32:                    <div class="field">
+33:                        <%=f.label :tag_list %>
+34:                        <%=f.text_field :tag_list, class: 'form-control', #value: @picture.tag_list.join(','),#%>
+35:                    </div>
+36:    
+37:                    <%= f.submit '投稿', class: "button is-info" %>
+38:                    <% end %>
+39:                </div>
+40:            </div>
+41:        </div>
+42:    </section>
+  
+app/views/pictures/new.html.erb:35: syntax error, unexpected '<'
+app/views/pictures/new.html.erb:39: unknown regexp options - dv
+app/views/pictures/new.html.erb:40: syntax error, unexpected '<'
+app/views/pictures/new.html.erb:41: unknown regexp options - dv
+app/views/pictures/new.html.erb:42: syntax error, unexpected '<'
+app/views/pictures/new.html.erb:44: unterminated regexp meets end of file
+app/views/pictures/new.html.erb:44: syntax error, unexpected end-of-input, expecting ')'
+app/views/pictures/new.html.erb:35: syntax error, unexpected '<'
+app/views/pictures/new.html.erb:39: unknown regexp options - dv
+app/views/pictures/new.html.erb:40: syntax error, unexpected '<'
+app/views/pictures/new.html.erb:41: unknown regexp options - dv
+app/views/pictures/new.html.erb:42: syntax error, unexpected '<'
+app/views/pictures/new.html.erb:44: unterminated regexp meets end of file
+app/views/pictures/new.html.erb:44: syntax error, unexpected end-of-input, expecting ')'
+app/views/pictures/new.html.erb:35: syntax error, unexpected '<'
+app/views/pictures/new.html.erb:39: unknown regexp options - dv
+app/views/pictures/new.html.erb:40: syntax error, unexpected '<'
+app/views/pictures/new.html.erb:41: unknown regexp options - dv
+app/views/pictures/new.html.erb:42: syntax error, unexpected '<'
+app/views/pictures/new.html.erb:44: unterminated regexp meets end of file
+app/views/pictures/new.html.erb:44: syntax error, unexpected end-of-input, expecting ')'
+app/views/pictures/new.html.erb:35: syntax error, unexpected '<'
+app/views/pictures/new.html.erb:39: unknown regexp options - dv
+app/views/pictures/new.html.erb:40: syntax error, unexpected '<'
+app/views/pictures/new.html.erb:41: unknown regexp options - dv
+app/views/pictures/new.html.erb:42: syntax error, unexpected '<'
+app/views/pictures/new.html.erb:44: unterminated regexp meets end of file
+app/views/pictures/new.html.erb:44: syntax error, unexpected end-of-input, expecting ')'
+app/views/pictures/new.html.erb:35: syntax error, unexpected '<'
+app/views/pictures/new.html.erb:39: unknown regexp options - dv
+app/views/pictures/new.html.erb:40: syntax error, unexpected '<'
+app/views/pictures/new.html.erb:41: unknown regexp options - dv
+app/views/pictures/new.html.erb:42: syntax error, unexpected '<'
+app/views/pictures/new.html.erb:44: unterminated regexp meets end of file
+app/views/pictures/new.html.erb:44: syntax error, unexpected end-of-input, expecting ')'
+app/views/pictures/new.html.erb:35: syntax error, unexpected '<'
+app/views/pictures/new.html.erb:39: unknown regexp options - dv
+app/views/pictures/new.html.erb:40: syntax error, unexpected '<'
+app/views/pictures/new.html.erb:41: unknown regexp options - dv
+app/views/pictures/new.html.erb:42: syntax error, unexpected '<'
+app/views/pictures/new.html.erb:44: unterminated regexp meets end of file
+app/views/pictures/new.html.erb:44: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/pictures/new" for ::1 at 2021-03-11 11:59:59 +0900
+Processing by PicturesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (Duration: 58.6ms | Allocations: 18633)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 87ms (Views: 82.2ms | ActiveRecord: 1.2ms | Allocations: 29547)
+
+
+Started POST "/pictures" for ::1 at 2021-03-11 12:00:04 +0900
+Processing by PicturesController#create as HTML
+  Parameters: {"authenticity_token"=>"haTuUY0E2DEmFB5PsSlTV0tuB+/2ZxnBAsRScKY4cRnute3QGff3H9NdWMg2JBBUa2euk1q5c6zylCtZING5GQ==", "picture"=>{"title"=>"", "body"=>"", "image"=>"{}", "tag_list"=>"rr"}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[31mUnpermitted parameter: :image[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/pictures_controller.rb:23:in `create'
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1213)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 7.4ms | ActiveRecord: 0.6ms | Allocations: 12905)
+
+
+Started POST "/pictures" for ::1 at 2021-03-11 12:01:05 +0900
+Processing by PicturesController#create as HTML
+  Parameters: {"authenticity_token"=>"Ne9GzdaZT9SxaYORsmCSlaqr7KSREdq4sApIdA5Er5pe/kVMQmpg+kQgxRY1bdGWiqJF2D3PsNVAWjFdiK1nmg==", "picture"=>{"title"=>"tagtest5", "body"=>"tagtest5", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007f9f79219290 @tempfile=#<Tempfile:/var/folders/_m/148jqp9n37z60ksdhb287yr40000gn/T/RackMultipart20210311-4496-5mh3mr.jpg>, @original_filename="lily.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"picture[image]\"; filename=\"lily.jpg\"\r\nContent-Type: image/jpeg\r\n">, "tag_list"=>"mucha"}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[31mUnpermitted parameter: :image[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/pictures_controller.rb:23:in `create'
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 940)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 16.3ms | ActiveRecord: 0.4ms | Allocations: 10430)
+
+
+Started POST "/pictures" for ::1 at 2021-03-11 12:01:15 +0900
+Processing by PicturesController#create as HTML
+  Parameters: {"authenticity_token"=>"Yitv/IuWESdjHXAJcnCdyvvKS6CyXVtmGGyT7ODxqtgJOmx9H2U+CZZUNo71fd7J28Pi3B6DMQvoPOrFZhhi2A==", "picture"=>{"title"=>"tagtest5", "body"=>"tagtest5", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007f9f81d9df28 @tempfile=#<Tempfile:/var/folders/_m/148jqp9n37z60ksdhb287yr40000gn/T/RackMultipart20210311-4496-yihnsx.jpg>, @original_filename="lily.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"picture[image]\"; filename=\"lily.jpg\"\r\nContent-Type: image/jpeg\r\n">, "tag_list"=>"mucha"}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[31mUnpermitted parameter: :image[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/pictures_controller.rb:23:in `create'
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 939)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 7.5ms | ActiveRecord: 0.5ms | Allocations: 10410)
+
+

@@ -31,8 +31,7 @@
 
                 <div class="field">
                     <%=f.label :tag_list %>
-                    <%=f.text_field :tag_list, class: 'form-control'%>
-                    #, #value: @picture.tag_list.join(','),#
+                    <%=f.text_field :tag_list, class: 'form-control', value: @picture.tag_list.join(','),%>
                 </div>
 
                 <%= f.submit '投稿', class: "button is-info" %>
