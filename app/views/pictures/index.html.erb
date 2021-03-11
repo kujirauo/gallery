@@ -3,7 +3,7 @@
     <div class="container">
         <div class="columns is-multiline">
             <% @pictures.each do |picture| %>
-            <div class="column is-4">
+            <div class="column">
                 <div class="card"> <%# カードコンテンツ開始 %>
                     <div class="card-image">
                         <figure class="image is-4by3">
@@ -16,27 +16,25 @@
                         <div class="media">
                             <div class="media-left">
                                 <p class="title is-4"><%= picture.title %></p><%# 絵タイトル %>
-                                <article class="media">
-                                    <figure class="media-left">
-                                        <p class="image is-32x32"> <%# アイコン %>
-                                            <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
-                                        </p>
-                                    </figure>
-                                </article>
-                            </div>
-                            <div class="media-content"> <%# ユーザー名%>
-                                <div class="content">
-                                    <p>
-                                        <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
-                                    </p>
+                                <p class="image is-32x32"> <%# アイコン %>
+                                    <%= attachment_image_tag picture.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+                                </p>
+                                <%# ユーザー名%>
+                                <div class="media-center">
+                                    <p class="subtitle is-6">@<%=link_to picture.user.username, user_path(picture.user) %></p>
                                 </div>
                             </div>
-
-                            <%= @tags.each do |tag| %>
-                            <td><%= tag.name %></td>
-                            <td><%= tag.taggings_count %></td>
-                            <% end %>
-
+                            <div class="media-right">
+                                <div class="content">
+                                    <p></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <%= @tags.each do |tag| %>
+                                <td><%= tag.name %></td>
+                                <td><%= tag.taggings_count %></td>
+                                <% end %>
+                            </div>
 
                         </div>
                     </div>

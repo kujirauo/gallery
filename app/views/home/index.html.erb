@@ -3,8 +3,11 @@
         <p>
             <strong class="is-size-1" style="font-family: cursive;">Artgallery</strong>
         </p>
-        <%= attachment_image_tag @picture, :image %>
+        <%= form_tag("/search", method: "get") do %>
+        <%= label_tag(:search, "検索") %>
+        <%= text_field_tag(:search) %>
+        <%= submit_tag("Search")%>
+        <% end %>
+
     </div>
 </div>
-
-
