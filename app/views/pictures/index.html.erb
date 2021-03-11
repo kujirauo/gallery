@@ -31,14 +31,10 @@
                                     </p>
                                 </div>
                             </div>
-                            <%= picture.tag_list %>
-                            <#= @tags.each do |tag| %>
-                            <#= link_to "#{tag.name}(#{tag.taggings_count})", pictures_path(tag: tag.name) %>
-                            <%# render 'pictures/tag_list', tag_list: picture.tag_list %>
-                            <%# tag.taggings_count %>
-                            <%# end %>
                             
-                            <%=f.label " #{tag.name}(#{tag.taggings_count})" %>
+                            <%= @tags.each do |tag| %>
+                                    <%= link_to "#{tag.name}(#{tag.taggings_count})", pictures_path(tag.name) %>
+                                    <% end %>
                         </div>
                     </div>
                 </div>

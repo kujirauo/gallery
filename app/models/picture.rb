@@ -10,7 +10,9 @@ class Picture < ApplicationRecord
     #picturesテーブルから中間テーブルを介してTagsテーブルへの関連付け
     #has_many :, through: :picture_tag_relations, dependent: :destroy
     
-    acts_as_taggable 
+    acts_as_taggable
+    #acts_as_taggable_on :skills, :interests
+    
 
     with_options presence: true do
         validates :title
