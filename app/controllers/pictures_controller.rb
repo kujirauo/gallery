@@ -3,9 +3,9 @@ class PicturesController < ApplicationController
   def index
     @pictures = Picture.all.order(created_at: :desc)
     #@picture = Picture.find_by(id: params[:id])
-    #@q = Picture.ransack(params[:q])
+    @q = current_user.pictures.ransack(params[:q])
+    @pictures = @q.result(distinct: true).page(params[:page])
     #@pictures = @q.result(distinct: true)
-    @pictures = Picture.where.search(params[:search])
   end
 
   def show
@@ -46,12 +46,23 @@ class PicturesController < ApplicationController
   end
 
   def search
-    @pictures = Picture.search(params[:search])
+    if params[:name].present?
+      @pictures = picture.where('name LIKE ?', "%#{params[:name]}%")
+    else
+      @pictures = picture.none
+    end
+    #@pictures = Picture.search(params[:search])
     #@q = Picture.search(search_params)
     #@pictures = @q.result(distinct: true)
   end
 
   private
+
+  def picture_params
+    params.require(:user).permit(:name, :description, :tag_list) 
+    #tag_list を追加
+  end
+
   def search_params
     params.require(:q).permit!
   end

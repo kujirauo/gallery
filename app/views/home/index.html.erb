@@ -3,14 +3,15 @@
         <p>
             <strong class="is-size-1" style="font-family: cursive;">Artgallery</strong>
         </p>
-        <%= form_tag(search_path, :method => 'get') do %>
-        <%= label_tag(:search, "検索") %>
-        <p>
-            <%= text_field_tag :search, params[:search] %>
-            <%= submit_tag "Search", :name => nil %>
-        </p>
-        <% end %>
+        
 
         <%= attachment_image_tag @picture, :image %>
     </div>
 </div>
+
+<%= search_form_for @q do |f| %>
+  <%= f.label :name, "Keyword" %>
+  <%= f.search_field :name_cont %>
+
+  <%= f.submit "検索" %>
+<% end %>
