@@ -46,21 +46,20 @@ class PicturesController < ApplicationController
     redirect_to pictures_path
   end
 
-  def search
-    if params[:name].present?
-      @pictures = picture.where('name LIKE ?', "%#{params[:name]}%")
-    else
-      @pictures = picture.none
-    end
+  #def search
+  #  if params[:name].present?
+  #    @pictures = picture.where('name LIKE ?', "%#{params[:name]}%")
+  #  else
+  #    @pictures = picture.none
+  #  end
     #@pictures = Picture.search(params[:search])
     #@q = Picture.search(search_params)
-    #@pictures = @q.result(distinct: true)
-  end
+  #  #@pictures = @q.result(distinct: true)
 
   private
 
   def picture_params
-    params.require(:picture).permit(:title, :body, :tag_list) 
+    params.require(:picture).permit(:title, :body, :tag_list)
     #tag_list を追加
   end
 
