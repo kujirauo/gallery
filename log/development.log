@@ -19604,3 +19604,81 @@ Processing by PicturesController#create as HTML
 Completed 200 OK in 30ms (Views: 11.8ms | ActiveRecord: 0.8ms | Allocations: 12041)
 
 
+Started GET "/" for ::1 at 2021-03-11 13:32:18 +0900
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 224)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:28
+Completed 200 OK in 189ms (Views: 139.7ms | ActiveRecord: 3.5ms | Allocations: 26889)
+
+
+Started GET "/pictures/new" for ::1 at 2021-03-11 13:32:20 +0900
+Processing by PicturesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (Duration: 43.0ms | Allocations: 15077)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 62ms (Views: 48.7ms | ActiveRecord: 1.6ms | Allocations: 26232)
+
+
+Started POST "/pictures" for ::1 at 2021-03-11 13:32:33 +0900
+Processing by PicturesController#create as HTML
+  Parameters: {"authenticity_token"=>"JKbryt2S0ePD1olYQ2b7qblnDhzj4GgQKcOE7cEtzqEa4SGgmH+sIN0PJfHkLJdFo7U/5f7dmhC9NBaVmn5l7g==", "picture"=>{"title"=>"test8", "body"=>"test8888", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007fc398bcd1b8 @tempfile=#<Tempfile:/var/folders/_m/148jqp9n37z60ksdhb287yr40000gn/T/RackMultipart20210311-5636-sd6q6w.jpg>, @original_filename="lily.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"picture[image]\"; filename=\"lily.jpg\"\r\nContent-Type: image/jpeg\r\n">, "tag_list"=>"mucha"}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mPicture Create (1.0ms)[0m  [1m[32mINSERT INTO "pictures" ("user_id", "title", "body", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["title", "test8"], ["body", "test8888"], ["image_id", "238864d1f4b2d34f3b3a906f771b3336efa065afe658915a0d65724c431f"], ["created_at", "2021-03-11 04:32:33.719648"], ["updated_at", "2021-03-11 04:32:33.719648"]]
+  ↳ app/controllers/pictures_controller.rb:23:in `create'
+  [1m[36mActsAsTaggableOn::Tag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE (LOWER(name) = LOWER('mucha'))[0m
+  ↳ app/controllers/pictures_controller.rb:23:in `create'
+  [1m[36mActsAsTaggableOn::Tag Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "mucha"], ["LIMIT", 1]]
+  ↳ app/controllers/pictures_controller.rb:23:in `create'
+  [1m[36mActsAsTaggableOn::Tag Create (0.1ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "mucha"], ["created_at", "2021-03-11 04:32:33.730274"], ["updated_at", "2021-03-11 04:32:33.730274"]]
+  ↳ app/controllers/pictures_controller.rb:23:in `create'
+  [1m[36mActsAsTaggableOn::Tag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 5], ["taggable_type", "Picture"]]
+  ↳ app/controllers/pictures_controller.rb:23:in `create'
+  [1m[36mActsAsTaggableOn::Tag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pictures_controller.rb:23:in `create'
+  [1m[36mActsAsTaggableOn::Tagging Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "taggings" WHERE "taggings"."tag_id" = ? AND "taggings"."taggable_type" = ? AND "taggings"."taggable_id" = ? AND "taggings"."context" = ? AND "taggings"."tagger_id" IS NULL AND "taggings"."tagger_type" IS NULL LIMIT ?[0m  [["tag_id", 1], ["taggable_type", "Picture"], ["taggable_id", 5], ["context", "tags"], ["LIMIT", 1]]
+  ↳ app/controllers/pictures_controller.rb:23:in `create'
+  [1m[36mActsAsTaggableOn::Tagging Create (1.3ms)[0m  [1m[32mINSERT INTO "taggings" ("tag_id", "taggable_type", "taggable_id", "context", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["tag_id", 1], ["taggable_type", "Picture"], ["taggable_id", 5], ["context", "tags"], ["created_at", "2021-03-11 04:32:33.746493"]]
+  ↳ app/controllers/pictures_controller.rb:23:in `create'
+  [1m[36mActsAsTaggableOn::Tag Update All (0.1ms)[0m  [1m[33mUPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) + ? WHERE "tags"."id" = ?[0m  [["taggings_count", 1], ["id", 1]]
+  ↳ app/controllers/pictures_controller.rb:23:in `create'
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pictures_controller.rb:23:in `create'
+Redirected to http://localhost:3000/pictures/5
+Completed 302 Found in 45ms (ActiveRecord: 5.3ms | Allocations: 25047)
+
+
+Started GET "/pictures/5" for ::1 at 2021-03-11 13:32:33 +0900
+Processing by PicturesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/pictures_controller.rb:13:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  Rendering pictures/show.html.erb within layouts/application
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = ? AND "likes"."picture_id" = ? LIMIT ?[0m  [["user_id", 2], ["picture_id", 5], ["LIMIT", 1]]
+  ↳ app/views/pictures/show.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  Rendered pictures/show.html.erb within layouts/application (Duration: 8.3ms | Allocations: 4248)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 13.0ms | ActiveRecord: 1.3ms | Allocations: 11606)
+
+
+Started GET "/attachments/96e74524e7b2e0d72185608db0f93c87ea68ae44/store/238864d1f4b2d34f3b3a906f771b3336efa065afe658915a0d65724c431f/image" for ::1 at 2021-03-11 13:32:33 +0900
+Refile::App: [2021-03-11 13:32:33 +0900] GET "/96e74524e7b2e0d72185608db0f93c87ea68ae44/store/238864d1f4b2d34f3b3a906f771b3336efa065afe658915a0d65724c431f/image" 200 2.7ms
+

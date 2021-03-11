@@ -59,7 +59,7 @@ class PicturesController < ApplicationController
   private
 
   def picture_params
-    params.require(:picture).permit(:title, :body, :image, :tag_list)
+    params.require(:picture).permit(:title, :body, :tag_list)
     #tag_list を追加
   end
 
