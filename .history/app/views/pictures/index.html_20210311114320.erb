@@ -4,6 +4,7 @@
     <%=f.label :title %>
     <%=f.text_field :title, class: 'form-control', id: 'picture_title'%>
 </div>
+
 <%= f.submit '保存', class: 'btn btn-primary' %>
 <% end %>
 
@@ -35,7 +36,7 @@
                             <div class="media-content"> <%# ユーザー名%>
                                 <div class="content">
                                     <p>
-                                        <strong><%=link_to picture.user.username, user_path(picture.user) %></strong>
+                                        <strong><%=link_to picture.user.usertitle, user_path(picture.user) %></strong>
                                     </p>
                                 </div>
                             </div>

@@ -1,16 +1,16 @@
 class PicturesController < ApplicationController
-  before_action :authenticate_!, except: [:index]
+  before_action :authenticate_user!, except: [:index]
   def index
     @pictures = Picture.all.order(created_at: :desc)
     #@picture = Picture.find_by(id: params[:id])
-    @q = current_.pictures.ransack(params[:q])
-    @pictures = @q.result(distinct: true).page(params[:page])
+    #@q = current_user.pictures.ransack(params[:q])
+    #@pictures = @q.result(distinct: true).page(params[:page]) #picturesの一覧が消える
     #@pictures = @q.result(distinct: true)
   end
 
   def show
     @picture = Picture.find_by(id: params[:id])
-    @ = @picture.
+    @user = @picture.user
   end
 
   def new
@@ -18,7 +18,7 @@ class PicturesController < ApplicationController
   end
 
   def create
-    @picture = current_.pictures.build(picture_params)
+    @picture = current_user.pictures.build(picture_params)
     if @picture.save
       redirect_to picture_path(@picture), notice: "画像を投稿しました。"
     else
@@ -59,7 +59,7 @@ class PicturesController < ApplicationController
   private
 
   def picture_params
-    params.require(:picture).permit(:name, :description, :tag_list) 
+    params.require(:user).permit(:name, :description, :tag_list) 
     #tag_list を追加
   end
 

@@ -18099,3 +18099,145 @@ Processing by PicturesController#index as HTML
 Completed 200 OK in 158ms (Views: 107.6ms | ActiveRecord: 2.7ms | Allocations: 50278)
 
 
+Started GET "/" for ::1 at 2021-03-11 11:33:53 +0900
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 224)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:28
+Completed 200 OK in 128ms (Views: 79.5ms | ActiveRecord: 2.5ms | Allocations: 27004)
+
+
+Started GET "/pictures/" for ::1 at 2021-03-11 11:33:55 +0900
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  [1m[36mPicture Load (0.5ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" ORDER BY "pictures"."created_at" DESC[0m
+  ↳ app/views/pictures/index.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/picture.rb:22:in `user'
+  Rendered pictures/index.html.erb within layouts/application (Duration: 54.6ms | Allocations: 23834)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:28
+Completed 200 OK in 67ms (Views: 63.6ms | ActiveRecord: 1.9ms | Allocations: 30242)
+
+
+Started POST "/pictures" for ::1 at 2021-03-11 11:34:00 +0900
+Processing by PicturesController#create as HTML
+  Parameters: {"authenticity_token"=>"rL+QgckfWsGZI6OMBx9CR8UlhUbM8pqhTis66QdpYTLHrpMAXex172xq5QuAEgFE5SwsOmAs8My+e0PAgYCpMg==", "name"=>"", "commit"=>"保存"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 400 Bad Request in 7ms (ActiveRecord: 0.1ms | Allocations: 3582)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/pictures_controller.rb:63:in `picture_params'
+app/controllers/pictures_controller.rb:22:in `create'
+Started POST "/pictures" for ::1 at 2021-03-11 11:34:14 +0900
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#create as HTML
+  Parameters: {"authenticity_token"=>"rL+QgckfWsGZI6OMBx9CR8UlhUbM8pqhTis66QdpYTLHrpMAXex172xq5QuAEgFE5SwsOmAs8My+e0PAgYCpMg==", "name"=>"test4", "commit"=>"保存"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 400 Bad Request in 77ms (ActiveRecord: 0.9ms | Allocations: 18071)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/pictures_controller.rb:63:in `picture_params'
+app/controllers/pictures_controller.rb:22:in `create'
+Started POST "/pictures" for ::1 at 2021-03-11 11:34:19 +0900
+Processing by PicturesController#create as HTML
+  Parameters: {"authenticity_token"=>"rL+QgckfWsGZI6OMBx9CR8UlhUbM8pqhTis66QdpYTLHrpMAXex172xq5QuAEgFE5SwsOmAs8My+e0PAgYCpMg==", "name"=>"sora", "commit"=>"保存"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.1ms | Allocations: 2223)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/pictures_controller.rb:63:in `picture_params'
+app/controllers/pictures_controller.rb:22:in `create'
+Started POST "/pictures" for ::1 at 2021-03-11 11:40:18 +0900
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#create as HTML
+  Parameters: {"authenticity_token"=>"rL+QgckfWsGZI6OMBx9CR8UlhUbM8pqhTis66QdpYTLHrpMAXex172xq5QuAEgFE5SwsOmAs8My+e0PAgYCpMg==", "name"=>"sora", "commit"=>"保存"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 400 Bad Request in 81ms (ActiveRecord: 2.0ms | Allocations: 18071)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/pictures_controller.rb:63:in `picture_params'
+app/controllers/pictures_controller.rb:22:in `create'
+Started POST "/pictures" for ::1 at 2021-03-11 11:41:59 +0900
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#create as HTML
+  Parameters: {"authenticity_token"=>"rL+QgckfWsGZI6OMBx9CR8UlhUbM8pqhTis66QdpYTLHrpMAXex172xq5QuAEgFE5SwsOmAs8My+e0PAgYCpMg==", "name"=>"test4", "commit"=>"保存"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 400 Bad Request in 94ms (ActiveRecord: 2.7ms | Allocations: 18071)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: picture):
+  
+app/controllers/pictures_controller.rb:63:in `picture_params'
+app/controllers/pictures_controller.rb:22:in `create'
+Started POST "/pictures" for ::1 at 2021-03-11 11:44:11 +0900
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#create as HTML
+  Parameters: {"authenticity_token"=>"rL+QgckfWsGZI6OMBx9CR8UlhUbM8pqhTis66QdpYTLHrpMAXex172xq5QuAEgFE5SwsOmAs8My+e0PAgYCpMg==", "name"=>"test4", "commit"=>"保存"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 400 Bad Request in 81ms (ActiveRecord: 1.4ms | Allocations: 18071)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: picture):
+  
+app/controllers/pictures_controller.rb:63:in `picture_params'
+app/controllers/pictures_controller.rb:22:in `create'
+Started POST "/pictures" for ::1 at 2021-03-11 11:44:43 +0900
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PicturesController#create as HTML
+  Parameters: {"authenticity_token"=>"rL+QgckfWsGZI6OMBx9CR8UlhUbM8pqhTis66QdpYTLHrpMAXex172xq5QuAEgFE5SwsOmAs8My+e0PAgYCpMg==", "name"=>"test4", "commit"=>"保存"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 400 Bad Request in 88ms (ActiveRecord: 2.4ms | Allocations: 18071)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: picture):
+  
+app/controllers/pictures_controller.rb:63:in `picture_params'
+app/controllers/pictures_controller.rb:22:in `create'

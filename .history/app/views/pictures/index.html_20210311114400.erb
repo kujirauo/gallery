@@ -3,7 +3,9 @@
 <div class="form-group">
     <%=f.label :title %>
     <%=f.text_field :title, class: 'form-control', id: 'picture_title'%>
+</div>%=f.text_field :name, class: 'form-control', id: 'picture_name'%>
 </div>
+
 <%= f.submit '保存', class: 'btn btn-primary' %>
 <% end %>
 
