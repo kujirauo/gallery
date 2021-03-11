@@ -31,7 +31,11 @@
                                     </p>
                                 </div>
                             </div>
-                            <%= picture.tag_list %>
+                            <%# タグ%><%#=ActionView::Helpers::TagHelper::TagB %>
+                            td= render 'tasks/tag_list', tag_list: task.tag_list
+                            <span class="label label-primary"><%= tag %></span>
+                            
+
                         </div>
                     </div>
                 </div>

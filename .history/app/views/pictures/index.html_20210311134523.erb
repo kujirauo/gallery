@@ -31,7 +31,12 @@
                                     </p>
                                 </div>
                             </div>
-                            <%= picture.tag_list %>
+                            <% @draft.tag_list.each do |tag| %>
+                            <span class="label label-primary"><%= tag %></span>
+                            <% end %> 
+                            <%#=ActionView::Helpers::TagHelper::TagB %>
+                            td= render 'tasks/tag_list', tag_list: task.tag_list
+
                         </div>
                     </div>
                 </div>
