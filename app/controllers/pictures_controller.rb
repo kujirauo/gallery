@@ -6,15 +6,19 @@ class PicturesController < ApplicationController
     #@q = current_user.pictures.ransack(params[:q])
     #@pictures = @q.result(distinct: true).page(params[:page])
     #picturesの一覧が消える
-    #if params[:tag_name]
-    #  @pictures = Picture.tagged_with("#{params[:tag_name]}")
-    #end
-    #tags = Picture.tag_counts_on(:tags)
+    if params[:tag_name]
+      @pictures = Picture.tagged_with("#{params[:tag_name]}")
+    end
+    tags = Picture.tag_counts_on(:tags)
     @tags = Picture.tag_counts_on(:tags)
     #全タグ(pictureモデルからtagsカラムを降順で取得)
-    if @tag = params[:tag]  # タグ検索用
-      @picture = picture.tagged_with(params[:tag])   # タグに紐付く投稿
-    end
+    #if @tag = params[:tag]  # タグ検索用
+    #  @picture = picture.tagged_with(params[:tag])   # タグに紐付く投稿
+    #end
+    #@pictures = @group.pictures.includes(:title,:tags)
+    #  if params[:tag_name]
+    #    @pictures = Picture.tagged_with("#{params[:tag_name]}")
+    #  end
   end
 
   def show
@@ -68,10 +72,8 @@ class PicturesController < ApplicationController
   #  #@pictures = @q.result(distinct: true)
 
   private
-
   def picture_params
-    params.require(:picture).permit(:title, :body, :image, :tag_list)
-    #tag_list を追加
+    params.require(:picture).permit(:title, :body, :image, :tag_list) #tag_list を追加
   end
 
   #def search_params
