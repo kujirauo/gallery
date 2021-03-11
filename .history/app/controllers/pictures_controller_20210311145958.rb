@@ -16,7 +16,7 @@ class PicturesController < ApplicationController
   def show
     @picture = Picture.find_by(id: params[:id])
     @user = @picture.user
-    @tags = @picture.tag_counts_on(:tags)
+    @tags = @pictu.tag_counts_on(:tags) 
   end
 
   def new

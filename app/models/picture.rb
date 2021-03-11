@@ -8,7 +8,7 @@ class Picture < ApplicationRecord
     #picturesテーブルから中間テーブルに対する関連付け
     #has_many :picture_tag_relations, dependent: :destroy
     #picturesテーブルから中間テーブルを介してTagsテーブルへの関連付け
-    #has_many :tags, through: :picture_tag_relations, dependent: :destroy
+    #has_many :, through: :picture_tag_relations, dependent: :destroy
     
     acts_as_taggable
 
